@@ -52,7 +52,7 @@ export default function HomePage() {
       {/* Slide 2 */}
       <Section tone="shoal" title="Giới thiệu Liên minh Invest Global">
         <p className="max-w-[70ch] text-[1.3rem] font-medium leading-relaxed text-navy">{org.definition}</p>
-        <ul className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+        <ul className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
           {founders.map((f) => (
             <li key={f.short} className="flex flex-col items-center rounded-lg bg-white p-5 text-center">
               <div className="relative h-24 w-24">

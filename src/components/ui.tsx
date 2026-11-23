@@ -68,15 +68,15 @@ export function Section({
 }) {
   const toneClass = tone === "shoal" ? "bg-shoal" : tone === "dark" ? "on-dark bg-abyss text-foam" : "bg-white";
   return (
-    <section id={id} className={`${toneClass} scroll-mt-20 py-16 md:py-24 ${className}`}>
+    <section id={id} className={`${toneClass} scroll-mt-20 py-12 md:py-16 ${className}`}>
       <div className="wrap">
         {title && <h2 className="max-w-[26ch] text-[2.25rem] md:text-[3.25rem]">{title}</h2>}
         {lead && (
-          <p className={`mt-4 max-w-[64ch] text-[1.3rem] font-medium leading-snug md:text-[1.5rem] ${tone === "dark" ? "text-foam" : "text-slate"}`}>
+          <p className={`mt-3 max-w-[64ch] text-[1.3rem] font-medium leading-snug md:text-[1.5rem] ${tone === "dark" ? "text-foam" : "text-slate"}`}>
             {lead}
           </p>
         )}
-        <div className={title || lead ? "mt-10 md:mt-14" : ""}>{children}</div>
+        <div className={title || lead ? "mt-5 md:mt-7" : ""}>{children}</div>
       </div>
     </section>
   );

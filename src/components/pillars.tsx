@@ -34,11 +34,11 @@ export function PillarFocus() {
     { title: blueEconomy.focusTitle69, list: pillars.slice(5) },
   ];
   return (
-    <div className="space-y-16">
+    <div className="space-y-12">
       {groups.map((g) => (
         <div key={g.title}>
           <h3 className="text-[1.75rem] md:text-[2.25rem]">{g.title}</h3>
-          <ul className="mt-8 flex flex-wrap justify-center gap-5">
+          <ul className="mt-5 flex flex-wrap justify-center gap-5">
             {g.list.map((p) => (
               <li
                 key={p.slug}
