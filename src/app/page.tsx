@@ -12,7 +12,13 @@ export default function HomePage() {
     <>
       {/* Slide 1 */}
       <section className="on-dark relative overflow-hidden bg-navy text-white">
-        <div className="wrap grid items-center gap-10 py-14 md:py-20 lg:grid-cols-12">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden aspect-[771/847] lg:block"
+        >
+          <Image src="/images/hero/cover-slide1.webp" alt="" fill priority sizes="50vw" className="object-cover object-right" />
+        </div>
+        <div className="wrap relative grid items-center py-14 md:py-20 lg:min-h-[38rem] lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="text-[1.15rem] font-bold text-[#3ecf8e]">{org.initiative}</p>
             <h1 className="mt-4 text-[3.5rem] leading-none md:text-[5.5rem]">{org.shortName}</h1>
@@ -26,9 +32,6 @@ export default function HomePage() {
                 Liên hệ
               </Link>
             </div>
-          </div>
-          <div className="relative hidden aspect-[771/847] w-full max-w-[28rem] justify-self-end overflow-hidden lg:col-span-5 lg:block">
-            <Image src="/images/hero/cover-slide1.webp" alt="Ảnh bìa hồ sơ năng lực Invest Global" fill priority sizes="28rem" className="object-cover" />
           </div>
         </div>
       </section>
