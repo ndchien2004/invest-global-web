@@ -12,9 +12,9 @@ export default function PromotionPage() {
       <PageHeader title={promotion.title} lead={promotion.lead} crumbs={[{ href: "/xuc-tien-ngoai-giao", label: promotion.title }]} />
       <Section>
         <h2 className="text-[1.75rem] md:text-[2.25rem]">{promotion.activitiesTitle}</h2>
-        <ul className="mt-6 flex flex-wrap gap-3">
+        <ul className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
           {promotion.activities.map((a) => (
-            <li key={a} className="rounded-lg bg-shoal px-6 py-3 text-[1.2rem] font-bold text-navy">
+            <li key={a} className="flex min-h-[4.5rem] items-center justify-center rounded-lg bg-shoal px-4 py-3 text-center text-[1.15rem] font-bold leading-snug text-navy">
               {a}
             </li>
           ))}

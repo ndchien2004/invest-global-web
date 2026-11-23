@@ -6,13 +6,13 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const mainNav = [
-  { href: "/nang-luc", label: "Bản quyền tác giả" },
   { href: "/gioi-thieu", label: "Giới thiệu" },
   { href: "/linh-vuc", label: "Lĩnh vực" },
   { href: "/dich-vu", label: "Dịch vụ" },
   { href: "/mang-luoi", label: "Mạng lưới" },
   { href: "/doi-tac", label: "Đối tác" },
   { href: "/tin-tuc", label: "Sự kiện" },
+  { href: "/nang-luc", label: "Bản quyền tác giả" },
   { href: "/kinh-te-bien-xanh", label: "9 trụ cột Kinh tế Biển Xanh" },
 ];
 
