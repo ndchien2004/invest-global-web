@@ -38,9 +38,14 @@ export function PillarFocus() {
       {groups.map((g) => (
         <div key={g.title}>
           <h3 className="text-[1.75rem] md:text-[2.25rem]">{g.title}</h3>
-          <ul className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 flex flex-wrap justify-center gap-5">
             {g.list.map((p) => (
-              <li key={p.slug} className="on-dark rounded-lg bg-navy p-5 text-foam">
+              <li
+                key={p.slug}
+                className={`on-dark w-full rounded-lg bg-navy p-5 text-foam md:w-[calc((100%-1.25rem)/2)] ${
+                  g.list.length % 2 === 0 ? "" : "lg:w-[calc((100%-2.5rem)/3)]"
+                }`}
+              >
                 <div className="flex items-center gap-4">
                   <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md">
                     <Image src={p.thumb} alt={p.focusTitle} fill sizes="96px" className="object-cover" />
