@@ -140,6 +140,28 @@
   .btn-ghost:hover {
     background: var(--color-shoal);
   }
+  .globe-label {
+    position: absolute;
+    bottom: anchor(top);
+    left: anchor(center);
+    translate: -50% -6px;
+    padding: 0.15rem 0.55rem;
+    border-radius: 9999px;
+    background: rgb(6 26 58 / 0.85);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .globe-label-hub {
+    background: var(--color-brass);
+    color: var(--color-abyss);
+  }
+  .globe-label-active {
+    outline: 2px solid var(--color-brass);
+  }
   .lb-btn {
     display: inline-flex;
     align-items: center;
