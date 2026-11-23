@@ -26,20 +26,36 @@ export default function PartnersPage() {
         </nav>
       </PageHeader>
 
-      {partnerGroups.map((g, gi) => (
+      {partnerGroups.map((g, gi) => {
+        const big = g.id === "bo-nganh";
+        return (
         <section key={g.id} id={g.id} aria-labelledby={`${g.id}-h`} className={`scroll-mt-24 py-14 md:py-20 ${gi % 2 ? "bg-white" : "bg-shoal"}`}>
           <div className="wrap">
+            {/* nhóm Bộ ngành (8 đơn vị): 2 hàng × 4 thẻ lớn */}
             <h2 id={`${g.id}-h`} className="text-[1.9rem] md:text-[2.6rem]">
               {g.title}
             </h2>
             {g.note && <p className="mt-4 max-w-[70ch] text-[1.25rem] font-medium text-slate">{g.note}</p>}
-            <ul className="mt-8 flex flex-wrap justify-center gap-3">
+            <ul className={`mt-8 flex flex-wrap justify-center ${big ? "mx-auto max-w-[62rem] gap-5" : "gap-3"}`}>
               {g.partners.map((p) => (
-                <li key={p.name} className="flex w-[calc((100%-0.75rem)/2)] flex-col items-center justify-center rounded-md bg-white px-3 py-5 sm:w-[calc((100%-2.25rem)/4)] lg:w-[calc((100%-3.75rem)/6)] text-center shadow-[0_1px_4px_rgba(10,46,99,0.12)]">
-                  <div className="relative h-14 w-full">
+                <li
+                  key={p.name}
+                  className={`flex flex-col items-center justify-center rounded-md bg-white text-center shadow-[0_1px_4px_rgba(10,46,99,0.12)] ${
+                    big
+                      ? "w-[calc((100%-1.25rem)/2)] px-4 py-7 sm:w-[calc((100%-3.75rem)/4)]"
+                      : "w-[calc((100%-0.75rem)/2)] px-3 py-5 sm:w-[calc((100%-2.25rem)/4)] lg:w-[calc((100%-3.75rem)/6)]"
+                  }`}
+                >
+                  <div className={`relative w-full ${big ? "h-20" : "h-14"}`}>
                     <Image src={p.logo} alt={`Logo ${p.name.replace("\n", " ")}`} fill sizes="140px" className="object-contain" />
                   </div>
-                  <p className="mt-3 flex min-h-[2.5em] items-center justify-center whitespace-pre-line text-[0.95rem] font-bold leading-tight text-navy">{p.name}</p>
+                  <p
+                    className={`mt-4 flex min-h-[2.5em] items-center justify-center whitespace-pre-line font-bold leading-tight text-navy ${
+                      big ? "text-[1.15rem]" : "text-[0.95rem]"
+                    }`}
+                  >
+                    {p.name}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -48,7 +64,8 @@ export default function PartnersPage() {
             )}
           </div>
         </section>
-      ))}
+        );
+      })}
     </>
   );
 }
