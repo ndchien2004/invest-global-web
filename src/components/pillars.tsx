@@ -38,23 +38,23 @@ export function PillarFocus() {
       {groups.map((g) => (
         <div key={g.title}>
           <h3 className="text-[1.75rem] md:text-[2.25rem]">{g.title}</h3>
-          <ul className="mt-8 grid gap-6 md:grid-cols-2">
+          <ul className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {g.list.map((p) => (
-              <li key={p.slug} className="on-dark overflow-hidden rounded-lg bg-navy text-foam">
-                <div className="relative h-40 w-full">
-                  <Image src={p.thumb} alt={p.focusTitle} fill sizes="(min-width:768px) 45vw, 100vw" className="object-cover" />
-                  <span className="absolute left-4 top-4">
-                    <Num n={p.no} />
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h4 className="text-[1.4rem] md:text-[1.6rem]">
-                    <Link href={`/kinh-te-bien-xanh/${p.slug}`} className="hover:underline">
+              <li key={p.slug} className="on-dark rounded-lg bg-navy p-5 text-foam">
+                <div className="flex items-center gap-4">
+                  <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md">
+                    <Image src={p.thumb} alt={p.focusTitle} fill sizes="96px" className="object-cover" />
+                    <span className="absolute left-1.5 top-1.5 scale-75 origin-top-left">
+                      <Num n={p.no} />
+                    </span>
+                  </div>
+                  <h4 className="text-[1.25rem] leading-snug md:text-[1.35rem]">
+                    <Link href={`/kinh-te-bien-xanh/${p.slug}`} className="hover:text-brass">
                       {p.focusTitle}
                     </Link>
                   </h4>
-                  <Bullets items={p.focus} className="mt-4 text-[1.1rem] text-white" />
                 </div>
+                <Bullets items={p.focus} className="mt-4 text-[1.05rem] text-white" />
               </li>
             ))}
           </ul>

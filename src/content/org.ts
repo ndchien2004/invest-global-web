@@ -350,6 +350,7 @@ export const indiaEvents: EventItem[] = [
     title: "India – Vietnam Business Meet",
     venue: "Embassy of India Hanoi",
     image: "/images/events/2023-11-24-business-meet.webp",
+    article: { url: "https://oudvietnam.com/blogs/news/oud-vietnam-make-its-mark-at-the-india-vietnam-business-meet", source: "Oud Vietnam" },
   },
   {
     slug: "auto-2022",
