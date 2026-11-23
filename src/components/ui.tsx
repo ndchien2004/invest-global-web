@@ -18,9 +18,9 @@ export function PageHeader({
 }) {
   return (
     <section className="on-dark relative overflow-hidden bg-navy text-foam">
-      <div className="wrap relative py-12 md:py-16">
+      <div className="wrap relative py-10 md:py-14">
         {crumbs && (
-          <nav aria-label="Đường dẫn" className="mb-8 text-[1.05rem] text-foam/85">
+          <nav aria-label="Đường dẫn" className="mb-5 text-[1.2rem] font-medium text-foam md:text-[1.3rem]">
             <ol className="flex flex-wrap gap-x-2">
               <li>
                 <Link href="/" className="hover:text-white hover:underline">
@@ -39,12 +39,12 @@ export function PageHeader({
           </nav>
         )}
         {tag && (
-          <p className="mb-4 inline-block rounded-sm bg-kelp px-4 py-1.5 text-[1.25rem] font-bold uppercase text-white md:text-[1.5rem]">
+          <p className="mb-4 inline-block rounded-sm bg-kelp px-4 py-1.5 text-[1.2rem] font-bold uppercase text-white md:text-[1.35rem]">
             {tag}
           </p>
         )}
-        <h1 className="max-w-[24ch] text-[2.5rem] md:text-[3.75rem] lg:text-[4.25rem]">{title}</h1>
-        {lead && <p className="mt-5 max-w-[60ch] text-[1.35rem] font-medium leading-snug text-foam md:text-[1.6rem]">{lead}</p>}
+        <h1 className="max-w-[40ch] text-[2rem] md:text-[2.6rem] lg:text-[2.9rem]">{title}</h1>
+        {lead && <p className="mt-4 max-w-[60ch] text-[1.25rem] font-medium leading-snug text-foam md:text-[1.45rem]">{lead}</p>}
         {children}
       </div>
     </section>

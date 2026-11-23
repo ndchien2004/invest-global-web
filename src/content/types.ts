@@ -96,6 +96,8 @@ export interface EventItem extends Meta {
   organizers?: string;
   detail?: string;
   image: string;
+  /** bài báo thật về sự kiện — mở tab mới */
+  article?: { url: string; source: string };
 }
 
 export interface Certificate {

@@ -285,6 +285,7 @@ export const strategicPartners = {
       id: "acme",
       logo: "/images/logos/acme.webp",
       image: "/images/photos/acme-pm.webp",
+      article: { url: "https://www.vietnamplus.vn/thu-tuong-khuyen-khich-tap-doan-acme-cua-an-do-dau-tu-manh-vao-viet-nam-post1135813.vnp", source: "VietnamPlus" },
       caption:
         "Thủ tướng Chính phủ Lê Minh Hưng tiếp ông Sanjay Dhawan, Phó Chủ tịch Tập đoàn ACME tại Ấn Độ. Invest Global là đại diện tại Việt Nam của Tập đoàn ACME (Ấn Độ) trong lĩnh vực Hydrogen và Ammonia xanh",
     },
@@ -310,6 +311,7 @@ export const indiaEvents: EventItem[] = [
     detail:
       "Key Sectors: Energy, Technology & Digital Economy, Processing and Manufacturing Industry, Pharmaceuticals & Healthcare, Logistics & Connectivity, Tourism & Aviation, Agriculture & Aquaculture",
     image: "/images/events/2026-05-08-wtc-mumbai.webp",
+    article: { url: "https://aiaiindia.com/?p=8363", source: "All India Association of Industries" },
   },
   {
     slug: "duoc-pham-2026",
@@ -319,6 +321,7 @@ export const indiaEvents: EventItem[] = [
     subtitle: "India - Viet Nam Pharmaceutical & Medical Equipment Business Meet",
     venue: "Embassy of India, Vietnam",
     image: "/images/events/2026-03-25-duoc-pham.webp",
+    article: { url: "https://en.vneconomy.vn/india-vietnam-pharmaceutical-medical-equipment-business-meet-held-in-hanoi.htm", source: "VnEconomy" },
   },
   {
     slug: "cii-2026",
@@ -328,6 +331,7 @@ export const indiaEvents: EventItem[] = [
     subtitle: "Multi-sectoral Business Meet on the occasion of visit of delegation from Confederation of Indian Industry",
     venue: "Embassy of India, Vietnam",
     image: "/images/events/2026-04-07-cii.webp",
+    article: { url: "https://vneconomy.vn/an-do-viet-nam-ket-noi-doanh-nghiep-da-nganh-thuc-day-hop-tac-thuc-chat.htm", source: "VnEconomy" },
   },
   {
     slug: "icc-2024",
@@ -337,6 +341,7 @@ export const indiaEvents: EventItem[] = [
     subtitle: "India Vietnam Multi-sectoral Business Meet on the occasion of the visit of delegation from Indian Chamber of Commerce",
     venue: "Investglobal Meeting Room, 98 Hoang Quoc Viet Street, Hanoi",
     image: "/images/events/2024-09-10-icc.webp",
+    article: { url: "https://vneconomy.vn/thuc-day-hop-tac-dau-tu-kinh-doanh-voi-nen-kinh-te-quy-mo-3-000-ty-usd.htm", source: "VnEconomy" },
   },
   {
     slug: "business-meet-2023",
@@ -354,6 +359,7 @@ export const indiaEvents: EventItem[] = [
     subtitle: "India Vietnam Business Meet on Auto Sector",
     venue: "Embassy of India, Vietnam",
     image: "/images/events/2022-08-22-auto.webp",
+    article: { url: "https://en.vneconomy.vn/indian-enterprises-keen-to-boost-investment-in-automotive-sector.htm", source: "VnEconomy" },
   },
 ];
 
