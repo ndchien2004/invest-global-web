@@ -33,13 +33,13 @@ export default function PartnersPage() {
               {g.title}
             </h2>
             {g.note && <p className="mt-4 max-w-[70ch] text-[1.25rem] font-medium text-slate">{g.note}</p>}
-            <ul className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+            <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
               {g.partners.map((p) => (
-                <li key={p.name} className="flex flex-col items-center justify-center rounded-lg bg-white p-5 text-center shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
-                  <div className="relative h-20 w-full">
-                    <Image src={p.logo} alt={`Logo ${p.name.replace("\n", " ")}`} fill sizes="200px" className="object-contain" />
+                <li key={p.name} className="flex flex-col items-center justify-center rounded-md bg-white px-3 py-3 text-center shadow-[0_1px_4px_rgba(10,46,99,0.12)]">
+                  <div className="relative h-12 w-full">
+                    <Image src={p.logo} alt={`Logo ${p.name.replace("\n", " ")}`} fill sizes="140px" className="object-contain" />
                   </div>
-                  <p className="mt-4 whitespace-pre-line text-[1.1rem] font-bold leading-snug text-navy">{p.name}</p>
+                  <p className="mt-2 whitespace-pre-line text-[0.95rem] font-bold leading-tight text-navy">{p.name}</p>
                 </li>
               ))}
             </ul>
