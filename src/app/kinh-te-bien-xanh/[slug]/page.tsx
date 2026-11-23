@@ -16,6 +16,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return p ? { title: `Trụ cột ${p.no}: ${p.title}`, description: p.tagline } : {};
 }
 
+/** Ảnh xếp theo hàng: 1 → 1 ảnh full; 2 → xếp chồng; số lẻ → ảnh đầu full, còn lại 2 ảnh/hàng */
+function galleryRows(images: string[]): string[][] {
+  if (images.length <= 2) return images.map((x) => [x]);
+  const rows: string[][] = [];
+  let rest = images;
+  if (images.length % 2 === 1) {
+    rows.push([images[0]]);
+    rest = images.slice(1);
+  }
+  for (let i = 0; i < rest.length; i += 2) rows.push(rest.slice(i, i + 2));
+  return rows;
+}
+
 /** Slide 34–42 */
 export default async function PillarPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -24,7 +37,6 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
   const idx = pillars.indexOf(p);
   const prev = pillars[idx - 1];
   const next = pillars[idx + 1];
-  const aside = p.sidePanel || p.highlight;
 
   return (
     <>
@@ -68,85 +80,88 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
         </section>
       )}
 
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-white py-12 md:py-16">
         <div className="wrap">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
-            <div className="rounded-lg bg-shoal p-6 lg:col-span-5">
-              <h2 className="text-[1.4rem] text-kelp md:text-[1.5rem]">Định hướng trọng tâm</h2>
-              <Bullets items={p.focus} className="mt-4 text-[1.15rem]" />
-            </div>
-            <div className="lg:col-span-7">
-              <div
-                className="flex gap-3"
-                style={{ maxWidth: `calc(15rem * ${p.images.reduce((a, src) => a + (imageAspect[src] ?? 4 / 3), 0).toFixed(3)} + ${(p.images.length - 1) * 0.75}rem)` }}
-              >
-                {p.images.map((src, i) => {
-                  const ar = imageAspect[src] ?? 4 / 3;
-                  return (
-                    <div
-                      key={src}
-                      className="relative overflow-hidden rounded-lg bg-shoal"
-                      style={{ flex: `${ar} 1 0`, aspectRatio: ar }}
-                    >
-                      <Image
-                        src={src}
-                        alt={`${p.title} – ảnh ${i + 1}`}
-                        fill
-                        sizes="(min-width:1024px) 30vw, 50vw"
-                        className="object-cover"
-                        priority={i === 0}
-                      />
-                    </div>
-                  );
-                })}
+          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+            {/* Cột trái: ảnh + định hướng trọng tâm (như slide 34) */}
+            <div className="space-y-6 lg:col-span-5">
+              <div className="grid grid-cols-2 gap-3">
+                {galleryRows(p.images).map((row, r) =>
+                  row.map((src, i) => {
+                    const ar = row.reduce((a, x) => a + (imageAspect[x] ?? 4 / 3), 0) / row.length;
+                    return (
+                      <div
+                        key={src}
+                        className={`relative overflow-hidden rounded-lg bg-shoal ${row.length === 1 ? "col-span-2" : ""}`}
+                        style={{ aspectRatio: row.length === 1 ? Math.max(imageAspect[src] ?? 4 / 3, 1.5) : ar }}
+                      >
+                        <Image
+                          src={src}
+                          alt={`${p.title} – ảnh ${r * 2 + i + 1}`}
+                          fill
+                          sizes={row.length === 1 ? "(min-width:1024px) 40vw, 100vw" : "(min-width:1024px) 20vw, 50vw"}
+                          className="object-cover"
+                          priority={r === 0}
+                        />
+                      </div>
+                    );
+                  }),
+                )}
+              </div>
+              <div className="rounded-lg bg-shoal p-6">
+                <h2 className="text-[1.4rem] text-kelp md:text-[1.5rem]">Định hướng trọng tâm</h2>
+                <Bullets items={p.focus} className="mt-4 text-[1.15rem]" />
               </div>
             </div>
-          </div>
 
-          <div className={`mt-12 grid gap-10 ${aside ? "lg:grid-cols-12" : ""}`}>
-            <ol className={`grid gap-6 md:grid-cols-2 ${aside ? "lg:col-span-8" : p.items.length === 3 ? "lg:grid-cols-3" : p.items.length === 5 ? "lg:grid-cols-3" : ""}`}>
-              {p.items.map((it, i) => (
-                <li key={it.title} className="rounded-lg bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
-                  <div className="flex items-center gap-3">
-                    <Num n={i + 1} />
-                    <h2 className="text-[1.45rem] md:text-[1.6rem]">{it.title}</h2>
-                  </div>
-                  <Bullets items={it.body} className="mt-4 text-[1.15rem]" />
-                </li>
-              ))}
-            </ol>
+            {/* Cột phải: nội dung chi tiết */}
+            <div className="space-y-6 lg:col-span-7">
+              <ol className="grid gap-5 md:grid-cols-2">
+                {p.items.map((it, i) => (
+                  <li
+                    key={it.title}
+                    className={`rounded-lg bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)] ${
+                      p.items.length % 2 === 1 && i === p.items.length - 1 ? "md:col-span-2" : ""
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <Num n={i + 1} />
+                      <h2 className="text-[1.35rem] md:text-[1.45rem]">{it.title}</h2>
+                    </div>
+                    <Bullets items={it.body} className="mt-4 text-[1.1rem]" />
+                  </li>
+                ))}
+              </ol>
 
-            {aside && (
-              <aside className="space-y-6 lg:col-span-4">
-                {p.highlight && (
-                  <p className="rounded-lg bg-shoal p-6 text-[1.25rem] font-medium leading-snug text-navy">
-                    {p.highlight.split("100% năng lượng tái tạo")[0]}
-                    {p.highlight.includes("100% năng lượng tái tạo") && (
-                      <>
-                        <strong className="text-kelp">100% năng lượng tái tạo</strong>
-                        {p.highlight.split("100% năng lượng tái tạo")[1]}
-                      </>
-                    )}
-                  </p>
-                )}
-                {p.sidePanel && (
-                  <div className="on-dark rounded-lg bg-navy p-6 text-white">
-                    <h2 className="text-[1.5rem]">{p.sidePanel.title}</h2>
-                    <ol className="mt-5 space-y-5">
-                      {p.sidePanel.items.map((s, i) => (
-                        <li key={s.title} className="flex items-start gap-3">
-                          <Num n={i + 1} />
-                          <div>
-                            <p className="text-[1.2rem] font-bold">{s.title}</p>
-                            {s.desc && <p className="text-[1.05rem] text-foam">{s.desc}</p>}
-                          </div>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                )}
-              </aside>
-            )}
+              {p.highlight && (
+                <p className="rounded-lg border-l-4 border-kelp bg-shoal p-6 text-[1.25rem] font-medium leading-snug text-navy">
+                  {p.highlight.split("100% năng lượng tái tạo")[0]}
+                  {p.highlight.includes("100% năng lượng tái tạo") && (
+                    <>
+                      <strong className="text-kelp">100% năng lượng tái tạo</strong>
+                      {p.highlight.split("100% năng lượng tái tạo")[1]}
+                    </>
+                  )}
+                </p>
+              )}
+
+              {p.sidePanel && (
+                <div className="on-dark rounded-lg bg-navy p-6 text-white">
+                  <h2 className="text-[1.45rem]">{p.sidePanel.title}</h2>
+                  <ol className="mt-5 grid gap-5 sm:grid-cols-2">
+                    {p.sidePanel.items.map((x, i) => (
+                      <li key={x.title} className="flex items-start gap-3">
+                        <Num n={i + 1} />
+                        <div>
+                          <p className="text-[1.15rem] font-bold">{x.title}</p>
+                          {x.desc && <p className="text-[1.05rem] text-foam">{x.desc}</p>}
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+            </div>
           </div>
 
           {p.chain && (
