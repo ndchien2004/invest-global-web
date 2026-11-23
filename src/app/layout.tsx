@@ -7,11 +7,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://investglobal.vn"),
   title: {
-    default: "Invest Global — Liên minh Tư vấn và Đầu tư Quốc tế",
+    default: "Invest Global | Liên minh Tư vấn và Đầu tư Quốc tế",
     template: "%s | Invest Global",
   },
   description:
-    "Liên minh Invest Global kết nối nguồn lực quốc tế, kiến tạo cơ hội đầu tư và thu xếp vốn FDI thế hệ mới vào Việt Nam, trọng tâm Kinh tế Biển Xanh.",
+    "Kết nối nguồn lực quốc tế – Kiến tạo cơ hội đầu tư – Thúc đẩy phát triển bền vững. Kinh tế Biển Xanh: 9 trụ cột chiến lược cho tương lai bền vững của kinh tế biển Việt Nam.",
   openGraph: {
     type: "website",
     locale: "vi_VN",

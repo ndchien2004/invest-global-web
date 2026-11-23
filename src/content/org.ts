@@ -1,21 +1,19 @@
 import type { Certificate, EventItem, Member, Milestone, NetworkNode, PartnerGroup } from "./types";
 
+/* Slide 1, 2, 43 */
 export const org = {
   name: "Liên minh Tư vấn và Đầu tư Quốc tế Invest Global",
   shortName: "Invest Global",
-  initiative: "Liên minh Kinh tế Biển Xanh",
+  subtitle: "Liên minh Tư vấn và Đầu tư Quốc tế",
+  initiative: "Invest Global | Liên minh Kinh tế Biển Xanh",
   slogan: "Code to Success",
-  sloganVi: "Mã khóa thành công",
+  sloganVi: "INVEST GLOBAL – “Mã khóa thành công”",
   tagline: ["Kết nối nguồn lực quốc tế", "Kiến tạo cơ hội đầu tư", "Thúc đẩy phát triển bền vững"],
+  taglineText: "Kết nối nguồn lực quốc tế – Kiến tạo cơ hội đầu tư – Thúc đẩy phát triển bền vững",
   domain: "InvestGlobal.vn",
-  representative: "Công ty Cổ phần Marina Capital",
   leader: { name: "TS. Nguyễn Thị Thu Hà", title: "Tổng giám đốc Invest Global" },
   definition:
-    "Liên minh Tư vấn và Đầu tư Quốc tế Invest Global (Liên minh Invest Global) là liên minh giữa các tổ chức, hiệp hội, doanh nghiệp và chuyên gia hàng đầu trong nước và quốc tế, xây dựng chuỗi cung ứng dịch vụ hỗ trợ xúc tiến đầu tư, thương mại, kết nối và thu xếp nguồn vốn đầu tư nước ngoài (FDI) thế hệ mới vào Việt Nam.",
-  positioning: "Kinh tế xanh, Kinh tế biển xanh, Kinh tế bạc",
-  vision: "Trở thành tổ chức nghiên cứu, tư vấn và kết nối đầu tư, thương mại có uy tín với mạng lưới toàn cầu.",
-  mission: "Gia tăng giá trị cho đối tác với dịch vụ tư vấn theo tiêu chuẩn quốc tế.",
-  coreValues: ["Tin cậy", "Kết nối", "Chuyên nghiệp", "Bền vững"],
+    "Liên minh Tư vấn và Đầu tư Quốc tế Invest Global (Liên minh Invest Global) là Liên minh giữa các Tổ chức, Hiệp hội, Doanh nghiệp và Chuyên gia hàng đầu trong nước và quốc tế để xây dựng chuỗi cung ứng dịch vụ, hỗ trợ thúc đẩy hoạt động xúc tiến đầu tư, thương mại, kết nối và thu xếp nguồn vốn đầu tư nước ngoài FDI vào Việt Nam.",
   contact: {
     email: "investglobalvn@gmail.com",
     hotline: "098 273 76 79",
@@ -25,60 +23,85 @@ export const org = {
   },
 };
 
+/* Slide 2 */
 export const founders = [
-  { short: "VAFIE", name: "Hiệp hội Doanh nghiệp đầu tư nước ngoài", logo: "/images/partners/vafie.webp" },
-  { short: "VPBA", name: "Hội Doanh nhân Tư nhân Việt Nam", logo: "/images/partners/vpba.webp" },
-  { short: "VSA", name: "Hiệp hội Nuôi biển Việt Nam", logo: "/images/partners/vsa.webp" },
-  { short: "VnEconomy", name: "Tạp chí Kinh tế Việt Nam", logo: "/images/partners/vneconomy.webp" },
-  { short: "VACNE", name: "Hội Bảo vệ Thiên nhiên và Môi trường Việt Nam", logo: "/images/partners/vacne.webp" },
+  { short: "VAFIE", name: "Hiệp hội Doanh nghiệp đầu tư nước ngoài (VAFIE)", logo: "/images/partners/vafie.webp" },
+  { short: "VPBA", name: "Hội Doanh nhân Tư nhân Việt Nam (VPBA)", logo: "/images/partners/vpba.webp" },
+  { short: "VSA", name: "Hiệp hội Nuôi biển Việt Nam (VSA)", logo: "/images/partners/vsa.webp" },
+  { short: "VnEconomy", name: "Tạp chí Kinh tế Việt Nam (Vneconomy)", logo: "/images/partners/vneconomy.webp" },
+  { short: "VACNE", name: "Hội bảo vệ Thiên nhiên và Môi trường Việt Nam (VACNE)", logo: "/images/partners/vacne.webp" },
 ];
 
+/* Slide 3 */
+export const foundation = {
+  title: "Nền tảng Liên minh Invest Global",
+  items: [
+    { title: "Định vị 2026–2035", text: "Kinh tế xanh, Kinh tế biển xanh, Kinh tế bạc." },
+    { title: "Tầm nhìn", text: "Trở thành tổ chức nghiên cứu, tư vấn và kết nối đầu tư, thương mại có uy tín với mạng lưới toàn cầu" },
+    { title: "Sứ mệnh", text: "Gia tăng giá trị cho đối tác với dịch vụ tư vấn theo tiêu chuẩn quốc tế;" },
+  ],
+  valuesTitle: "Giá trị cốt lõi",
+  values: ["Tin cậy", "Kết nối", "Chuyên nghiệp", "Bền vững"],
+};
+
+/* Slide 4 */
 export const strategy = {
-  lead: "Ba trục chiến lược được hỗ trợ bởi sáu nền tảng và tạo bốn nhóm kết quả trọng tâm.",
+  title: "Mô hình chiến lược 2026 - 2035",
+  lead: "Ba trục chiến lược được hỗ trợ bởi sáu nền tảng dữ liệu và tạo bốn nhóm kết quả trọng tâm.",
+  axesTitle: "03 trục chiến lược",
   axes: ["Kinh tế xanh", "Kinh tế biển xanh", "Kinh tế bạc"],
+  platformsTitle: "06 nền tảng",
   platforms: ["Dữ liệu", "Công nghệ", "Tài sản trí tuệ", "Tài chính", "Thương mại toàn cầu", "ESG"],
+  outcomesTitle: "04 nhóm kết quả",
   outcomes: [
     "FDI thế hệ mới",
-    "Chuyển giao và ứng dụng công nghệ",
+    "Chuyển giao & ứng dụng công nghệ",
     "Doanh nghiệp Việt Nam tham gia sâu chuỗi giá trị",
     "Sản phẩm Việt mở rộng thị trường quốc tế",
   ],
 };
 
+/* Slide 5 */
+export const milestonesTitle = "Các cột mốc phát triển";
 export const milestones: Milestone[] = [
   { year: "2017", text: "Nghiên cứu khu nghỉ dưỡng và chăm sóc sức khỏe cho người cao tuổi." },
   { year: "2020", text: "Phát triển cổng thông tin xúc tiến đầu tư, thương mại và du lịch quốc tế." },
   { year: "2023", text: "Nghiên cứu hệ sinh thái Du lịch, Dịch vụ và Công viên nông nghiệp trong quy hoạch phân khu Đô thị Sông Hồng." },
-  { year: "2024", text: "Thúc đẩy ngoại giao kinh tế, kết nối doanh nghiệp Việt Nam – Ấn Độ." },
-  { year: "2025", text: "Nghiên cứu sản phẩm tài chính cho hệ sinh thái đường sắt và chiến lược chuyển đổi xanh." },
-  { year: "2026", text: "Nghiên cứu Kinh tế biển xanh, Kinh tế xanh và Kinh tế bạc.", current: true },
-  { year: "2027–2030", text: "Thương mại hóa công nghệ lõi, công nghệ chiến lược, công nghệ cao." },
+  { year: "2024", text: "Thúc đẩy ngoại giao kinh tế, kết nối doanh nghiệp Việt Nam-Ấn Độ." },
+  { year: "2025", text: "Nghiên cứu sản phẩm tài chính cho hệ sinh thái đường sắt và chiến lược chuyển đổi xanh" },
+  { year: "2026", text: "Nghiên cứu kinh tế biển xanh; Kinh tế xanh; Kinh tế bạc", current: true },
+  { year: "2027-2030", text: "Thương mại hóa công nghệ lõi, công nghệ chiến lược, công nghệ cao" },
 ];
+export const leaderQuote = "Mỗi giai đoạn phát triển gắn kết giữa hiệu quả và giá trị phát triển bền vững";
 
-export const leaderQuote = "Mỗi giai đoạn phát triển gắn kết giữa hiệu quả và giá trị phát triển bền vững.";
-
+/* Slide 6–7 */
 export const modules = {
-  name: "Hệ thống giải pháp xúc tiến đầu tư quốc tế",
-  lead: "Nền tảng số hóa hoạt động xúc tiến đầu tư, thương mại, ESG và kết nối chuỗi giá trị.",
+  title: "Cổng thông tin đầu tư quốc tế",
+  lead: "Nền tảng số hóa hoạt động xúc tiến đầu tư, thương mại, ESG và kết nối chuỗi giá trị",
+  systemTitle: "Hệ thống giải pháp xúc tiến đầu tư quốc tế",
   items: [
-    { name: "Invest Portal", desc: "Cổng thông tin xúc tiến đầu tư" },
-    { name: "Invest Service", desc: "Dịch vụ tư vấn đầu tư" },
-    { name: "Invest Link", desc: "Kết nối đối tác và địa phương" },
-    { name: "Invest Club", desc: "Câu lạc bộ nhà đầu tư" },
-    { name: "Invest Green", desc: "Đầu tư xanh ESG", needsReview: true },
-    { name: "Invest Space", desc: "Không gian kết nối sự kiện" },
+    { module: "Module 1", name: "Invest Portal", desc: "Cổng thông tin xúc tiến đầu tư" },
+    { module: "Module 2", name: "Invest Service", desc: "Dịch vụ tư vấn đầu tư" },
+    { module: "Module 3", name: "Invest Link", desc: "Kết nối đối tác và địa phương" },
+    { module: "Module 4", name: "Invest Club", desc: "Câu lạc bộ nhà đầu tư" },
+    { module: "Module 5", name: "Invest Green", desc: "Đầu tư xanh ESG" },
+    { module: "Module 6", name: "Invest Space", desc: "Không gian kết nối sự kiện" },
   ],
 };
 
+/* Slide 8 */
+export const differentiatorsTitle = "Invest Global “Chuyên sâu tạo sự khác biệt”";
 export const differentiators = [
   { title: "Am hiểu thị trường Việt Nam", desc: "Thông tin, chính sách, quy hoạch, địa phương và hệ sinh thái doanh nghiệp." },
   { title: "Mạng lưới quốc tế", desc: "Cơ quan ngoại giao, hiệp hội, doanh nghiệp, nhà đầu tư và tổ chức xúc tiến." },
-  { title: "Chuỗi dịch vụ liền mạch", desc: "Nghiên cứu, pháp lý, dự án, vốn, đối tác, nhân lực, truyền thông." },
-  { title: "Khả năng điều phối", desc: "Tập hợp chuyên gia và đối tác theo yêu cầu cụ thể của từng dự án." },
+  { title: "Chuỗi dịch vụ", desc: "Nghiên cứu, pháp lý, dự án, vốn, đối tác, nhân lực, truyền thông." },
+  { title: "Khả năng điều phối", desc: "Tập hợp chuyên gia và đối tác theo yêu cầu cụ thể từng dự án." },
   { title: "Nền tảng truyền thông", desc: "Cổng thông tin, diễn đàn, sự kiện và hệ sinh thái nội dung đầu tư." },
   { title: "Định hướng bền vững", desc: "Chuyển đổi xanh, công nghệ, hạ tầng hiện đại và giá trị dài hạn." },
 ];
 
+/* Slide 9 */
+export const servicesTitle = "Chuỗi dịch vụ";
 export const services = [
   {
     id: "phap-ly-du-an",
@@ -104,7 +127,7 @@ export const services = [
     id: "nhan-luc-truyen-thong",
     title: "Nhân lực và truyền thông",
     items: [
-      "Khảo sát nhu cầu nhân lực theo ngành và dự án.",
+      "Khảo sát nhu cầu nhân lực theo ngành/dự án.",
       "Kết nối cơ sở đào tạo, chuyên gia và doanh nghiệp.",
       "Xây dựng hồ sơ xúc tiến và nội dung giới thiệu dự án.",
       "Tổ chức hội nghị, diễn đàn, hội thảo và kết nối doanh nghiệp.",
@@ -112,6 +135,9 @@ export const services = [
   },
 ];
 
+/* Slide 10 */
+export const processTitle = "Quy trình 06 bước vòng đời dự án";
+export const processLead = "Quy trình được tổ chức theo logic từ tiếp nhận nhu cầu đến hỗ trợ triển khai.";
 export const processSteps = [
   { title: "Tiếp nhận nhu cầu", desc: "Mục tiêu đầu tư, ngành, quy mô, thị trường, đối tác, nhu cầu vốn." },
   { title: "Nghiên cứu và sàng lọc", desc: "Chính sách, địa điểm, quy hoạch, thị trường và rủi ro." },
@@ -121,8 +147,11 @@ export const processSteps = [
   { title: "Hỗ trợ triển khai", desc: "Thủ tục, đối thoại các bên, truyền thông và xử lý vướng mắc." },
 ];
 
+/* Slide 18 */
 export const promotion = {
-  lead: "Phối hợp cơ quan ngoại giao, hiệp hội và tổ chức quốc tế để tạo các hoạt động xúc tiến có mục tiêu.",
+  title: "Xúc tiến đầu tư & ngoại giao quốc tế",
+  lead: "Phối hợp cơ quan ngoại giao, hiệp hội và tổ chức quốc tế để tạo các xúc tiến có mục tiêu",
+  activitiesTitle: "Hoạt động xúc tiến & kết nối quốc tế",
   activities: [
     "Diễn đàn Đầu tư Quốc tế",
     "Làm việc với Đại sứ quán",
@@ -133,17 +162,28 @@ export const promotion = {
   channels: [
     {
       title: "Cơ quan ngoại giao",
-      desc: "Kênh phối hợp giúp kết nối chương trình xúc tiến, làm việc song phương và giới thiệu cơ hội đầu tư có chọn lọc.",
+      desc: ["Kênh phối hợp giúp kết nối chương trình xúc tiến, làm việc song phương và giới thiệu cơ hội đầu tư có chọn lọc."],
     },
     {
-      title: "Hiệp hội và tổ chức quốc tế",
-      desc: "Phát triển mạng lưới chuyên gia, doanh nghiệp, tổ chức xúc tiến và định chế tài chính theo từng lĩnh vực.",
+      title: "Hiệp hội & tổ chức quốc tế",
+      desc: ["Phát triển mạng lưới chuyên gia, doanh nghiệp, tổ chức xúc tiến và định chế tài chính theo từng lĩnh vực."],
     },
     {
-      title: "Diễn đàn và B2B matching",
-      desc: "Tổ chức sự kiện, hội thảo, chương trình kết nối doanh nghiệp và truyền thông cơ hội đầu tư; kết nối quốc tế và làm việc với đại diện cơ quan ngoại giao.",
+      title: "Diễn đàn & B2B matching",
+      desc: [
+        "Tổ chức sự kiện, hội thảo, chương trình kết nối doanh nghiệp và truyền thông cơ hội đầu tư.",
+        "Kết nối quốc tế và làm việc với đại diện cơ quan ngoại giao.",
+      ],
     },
   ],
+};
+
+/* Slide 19 */
+export const networkPage = {
+  title: "Hệ thống thành viên mạng lưới toàn cầu",
+  lead: "Năng lực được tổ chức theo mô hình: Doanh nghiệp thành viên, đối tác quốc tế và các chuyên gia quốc tế",
+  vnTitle: "Hệ thống tại Việt Nam",
+  globalTitle: "Mạng lưới toàn cầu & đối tác",
 };
 
 export const members: Member[] = [
@@ -156,232 +196,198 @@ export const members: Member[] = [
   { name: "Công ty Cổ phần Tư vấn Synectics", role: "Tư vấn chiến lược, chuyển đổi số và đổi mới mô hình quản trị dự án trong lĩnh vực đường sắt." },
 ];
 
-/** Hà Nội — điểm gốc của hải đồ */
-export const origin = { lon: 105.85, lat: 21.03, label: "Hà Nội" };
-
 export const network: NetworkNode[] = [
-  { id: "nga", country: "Nga", sectors: ["Năng lượng, dầu khí", "Công nghiệp nặng", "Khoa học và công nghệ"], lon: 37.6, lat: 55.75 },
-  { id: "an-do", country: "Ấn Độ", sectors: ["Năng lượng tái tạo", "Công nghệ thông tin", "Dược phẩm"], lon: 77.2, lat: 28.6 },
-  { id: "nhat-ban", country: "Nhật Bản", sectors: ["Công nghệ", "Tài chính"], lon: 139.7, lat: 35.7 },
-  { id: "singapore", country: "Singapore", sectors: ["Tài chính, ngân hàng", "Logistics và hạ tầng", "Đổi mới sáng tạo"], lon: 103.8, lat: 1.35 },
-  { id: "thai-lan", country: "Thái Lan", sectors: ["Nông nghiệp công nghệ cao", "Du lịch"], lon: 100.5, lat: 13.75 },
-  { id: "canada", country: "Canada", sectors: ["Nông nghiệp công nghệ cao", "Khoáng sản và năng lượng", "Giáo dục và đào tạo"], lon: -75.7, lat: 45.4 },
-  { id: "hoa-ky", country: "Hoa Kỳ", sectors: ["Công nghệ cao", "Năng lượng", "Tài chính"], lon: -77.0, lat: 38.9 },
+  { country: "Ấn Độ", sectors: ["Năng lượng tái tạo", "Công nghệ thông tin", "Dược phẩm"] },
+  { country: "Nga", sectors: ["Năng lượng, dầu khí", "Công nghiệp nặng", "Khoa học và công nghệ"] },
+  { country: "Nhật Bản", sectors: ["Công nghệ", "Tài chính"] },
+  { country: "Singapore", sectors: ["Tài chính, ngân hàng", "Logistics và hạ tầng", "Đổi mới sáng tạo"] },
+  { country: "Thái Lan", sectors: ["Nông nghiệp công nghệ cao", "Du lịch"] },
+  { country: "Canada", sectors: ["Nông nghiệp công nghệ cao", "Khoáng sản và năng lượng", "Giáo dục và đào tạo"] },
+  { country: "Hoa Kỳ", sectors: ["Công nghệ cao", "Năng lượng", "Tài chính"] },
+  { country: "Quốc tế", sectors: ["Mạng lưới chuyên gia", "Quỹ đầu tư và các tổ chức, định chế tài chính", "Hiệp hội và tổ chức quốc tế"] },
 ];
 
-export const internationalNetwork = [
-  "Mạng lưới chuyên gia",
-  "Quỹ đầu tư và các tổ chức, định chế tài chính",
-  "Hiệp hội và tổ chức quốc tế",
-];
-
-/**
- * Brief §10.4: không dùng hình Quốc huy; logo đối tác chỉ hiển thị khi được phép.
- * Vì vậy trang Đối tác hiển thị TÊN; bật logo bằng SHOW_PARTNER_LOGOS khi có xác nhận.
- */
-export const SHOW_PARTNER_LOGOS = false;
-
+/* Slide 20–22. Tên lấy từ chữ trên slide; với logo không kèm chữ, tên lấy từ chính logo. */
+const L = (f: string) => `/images/logos/${f}.webp`;
 export const partnerGroups: PartnerGroup[] = [
   {
-    id: "co-quan-nha-nuoc",
-    title: "Bộ, ngành hỗ trợ và đồng hành",
+    id: "bo-nganh",
+    source: "slide 20",
+    title: "Hỗ trợ và đồng hành của các Bộ ngành",
     partners: [
-      "Văn phòng Chính phủ",
-      "Bộ Nông nghiệp và Môi trường",
-      "Bộ Tài chính",
-      "Bộ Công Thương",
-      "Bộ Y tế",
-      "Bộ Khoa học và Công nghệ",
-      "Cục Đầu tư nước ngoài (FIA), Bộ Tài chính",
-      "Cục Xúc tiến thương mại (Vietrade), Bộ Công Thương",
+      { name: "Văn phòng Chính phủ", logo: L("vpcp") },
+      { name: "Bộ Nông nghiệp và Môi trường", logo: L("bo-nn-mt") },
+      { name: "Bộ Tài chính", logo: L("bo-tai-chinh") },
+      { name: "Bộ Công thương", logo: L("bo-cong-thuong") },
+      { name: "Bộ Y tế", logo: L("bo-y-te") },
+      { name: "Bộ Khoa học và Công nghệ", logo: L("bo-khcn") },
+      { name: "Bộ Tài chính\nCục Đầu tư nước ngoài", logo: L("fia") },
+      { name: "Bộ Công thương\nCục xúc tiến thương mại", logo: L("vietrade") },
     ],
   },
   {
-    id: "dinh-che-tai-chinh",
-    title: "Định chế tài chính quốc tế",
-    partners: ["IFC — International Finance Corporation", "ADB — Asian Development Bank", "IIB — International Investment Bank"],
-  },
-  {
-    id: "ngan-hang",
-    title: "Ngân hàng Việt Nam",
-    partners: ["MB Bank", "BIDV", "VietinBank", "Vietcombank"],
-  },
-  {
-    id: "tap-doan-quoc-te",
-    title: "Tập đoàn và tổ chức quốc tế",
-    partners: ["ACME (Ấn Độ)", "Suzlon (Ấn Độ)", "World Trade Center Mumbai", "Deloitte"],
-  },
-  {
-    id: "doanh-nghiep-viet-nam",
-    title: "Tập đoàn, khu công nghiệp và doanh nghiệp Việt Nam",
+    id: "dinh-che-tap-doan",
+    source: "slide 21",
+    title: "Đối tác chiến lược: Định chế tài chính, Tập đoàn và doanh nghiệp",
+    note: "Kết nối nguồn lực cho các dự án quy mô lớn FDI: Cảng biển, năng lượng tái tạo, đô thị biển, logistics và chuyển đổi số.",
     partners: [
-      "Stavian Group",
-      "Khu Công nghệ cao Hòa Lạc",
-      "DEEP C Industrial Zones",
-      "GAET",
-      "Eureka Linh Trường",
-      "Minh Trung Group",
-      "Dabaco Group",
-      "IDI Group",
-      "Tạp chí Kinh tế Việt Nam",
+      { name: "International Finance Corporation", logo: L("ifc") },
+      { name: "Asian Development Bank", logo: L("adb") },
+      { name: "International Investment Bank", logo: L("iib") },
+      { name: "ACME", logo: L("acme") },
+      { name: "Suzlon", logo: L("suzlon") },
+      { name: "World Trade Center Mumbai", logo: L("wtc-mumbai") },
+      { name: "Stavian Group", logo: L("stavian") },
+      { name: "Hoa Lac Hi-tech Park", logo: L("hhtp") },
+      { name: "DEEP C Industrial Zones", logo: L("deep-c") },
+      { name: "MB Bank", logo: L("mb-bank") },
+      { name: "Deloitte", logo: L("deloitte") },
+      { name: "BIDV", logo: L("bidv") },
+      { name: "VietinBank", logo: L("vietinbank") },
+      { name: "Vietcombank", logo: L("vietcombank") },
+      { name: "GAET", logo: L("gaet") },
+      { name: "Tạp chí Kinh tế Việt Nam", logo: L("tap-chi-ktvn") },
+      { name: "Eureka Linh Trường", logo: L("eureka") },
+      { name: "Binh đoàn 15", logo: L("binh-doan-15") },
+      { name: "Minh Trung Group", logo: L("minh-trung") },
+      { name: "Dabaco Group", logo: L("dabaco") },
+      { name: "IDI Group", logo: L("idi") },
     ],
   },
   {
     id: "ngoai-giao",
+    source: "slide 22",
     title: "Cơ quan ngoại giao và tổ chức quốc tế",
-    note: "Các Đại sứ quán, tổ chức phi chính phủ và hiệp hội quốc tế đồng hành trong xúc tiến đầu tư và ngoại giao kinh tế.",
+    note: "Các Đại sứ quán, tổ chức phi Chính phủ, tổ chức hiệp hội quốc tế đồng hành trong hoạt động xúc tiến đầu tư và ngoại giao kinh tế.",
+    banner: "Invest Global là cổng kết nối quốc tế cho dòng vốn FDI và kinh tế biển xanh",
     partners: [
-      "Đại sứ quán Việt Nam tại Ấn Độ",
-      "Đại sứ quán Ấn Độ tại Việt Nam",
-      "Đại sứ quán Việt Nam tại Canada",
-      "Đại sứ quán Canada tại Việt Nam",
-      "IICCI — Indian Importers Chambers of Commerce and Industry",
-      "ISFA — Indian Small Business & Franchise Association",
-      "Infrastructure Asia",
-      "Federation of Indian Industry",
-      "CABC — Canada-ASEAN Business Council",
-      "CanCham Vietnam",
-      "ACMA — Automotive Component Manufacturers Association of India",
-      "IMC Chamber of Commerce and Industry",
+      { name: "Viet Nam Embassy in India", logo: L("dsq-vn-an-do") },
+      { name: "Indian Importers Chambers of Commerce and Industry", logo: L("iicci") },
+      { name: "Indian Small Business & Franchise Association", logo: L("isfa") },
+      { name: "Infrastructure Asia", logo: L("infrastructure-asia") },
+      { name: "Federation of Indian Industry", logo: L("fii") },
+      { name: "Viet Nam Embassy in Canada", logo: L("dsq-vn-canada") },
+      { name: "Embassy of India Hanoi, Viet Nam", logo: L("dsq-an-do") },
+      { name: "Canada-ASEAN Business Council", logo: L("cabc") },
+      { name: "IMC Chamber of Commerce and Industry", logo: L("imc") },
+      { name: "Automotive Component Manufacturers Association of India", logo: L("acma") },
+      { name: "CanCham Vietnam", logo: L("cancham") },
+      { name: "Canada Embassy in Viet Nam", logo: L("dsq-canada") },
     ],
   },
 ];
 
-export const strategicPartners = [
-  {
-    id: "acme",
-    name: "ACME",
-    country: "Ấn Độ",
-    field: "Hydrogen và Ammonia xanh",
-    text: "Invest Global là đại diện tại Việt Nam của Tập đoàn ACME trong lĩnh vực Hydrogen và Ammonia xanh.",
-    image: "/images/photos/acme-pm.webp",
-    caption:
-      "Thủ tướng Chính phủ Lê Minh Hưng tiếp ông Sanjay Dhawan, Phó Chủ tịch Tập đoàn ACME, ngày 12/9/2026 tại New Delhi.",
-    credit: "Ảnh: TTXVN",
-  },
-  {
-    id: "suzlon",
-    name: "Suzlon",
-    country: "Ấn Độ",
-    field: "Điện gió",
-    text: "Invest Global là đại diện tại Việt Nam của Tập đoàn Suzlon trong lĩnh vực điện gió.",
-    image: "/images/photos/suzlon.webp",
-    caption: "Invest Global cùng Suzlon tại triển lãm năng lượng quốc tế.",
-    needsReview: true,
-  },
-];
+/* Slide 23 — giữ nguyên chữ và font (Tahoma Bold) */
+export const strategicPartners = {
+  title: "Đối tác chiến lược: Tập đoàn đa quốc gia có quy mô lớn trên thế giới",
+  items: [
+    {
+      id: "acme",
+      logo: "/images/logos/acme.webp",
+      image: "/images/photos/acme-pm.webp",
+      caption:
+        "Thủ tướng Chính phủ Lê Minh Hưng tiếp ông Sanjay Dhawan, Phó Chủ tịch Tập đoàn ACME tại Ấn Độ. Invest Global là đại diện tại Việt Nam của Tập đoàn ACME (Ấn Độ) trong lĩnh vực Hydrogen và Ammonia xanh",
+    },
+    {
+      id: "suzlon",
+      logo: "/images/logos/suzlon.webp",
+      image: "/images/photos/suzlon.webp",
+      caption: "Invest Global là đại diện tại Việt Nam của Tập đoàn Suzlon (Ấn Độ) trong lĩnh vực điện gió",
+    },
+  ],
+};
 
-export const events: EventItem[] = [
+/* Slide 24 — thông tin đọc từ chính các poster trong slide */
+export const indiaEventsTitle = "Đồng tổ chức xúc tiến thương mại và đầu tư giữa Ấn Độ - Việt Nam";
+export const indiaEvents: EventItem[] = [
   {
-    slug: "ngai-dai-su-an-do-tham-vneconomy",
-    date: "2026-04-01",
-    dateLabel: "01/04/2026",
-    title: "Đại sứ Ấn Độ Tshering W. Sherpa thăm VnEconomy và Invest Global",
-    venue: "BMC Center, Hà Nội",
-    organizers: "VnEconomy, Invest Global",
-    image: "/images/photos/an-do-2.webp",
-    kind: "ngoai-giao",
-  },
-  {
-    slug: "dai-su-canada-tham-vneconomy",
-    date: "2026-01-01",
-    dateLabel: "2026",
-    title: "Đại sứ Canada Jim Nickel thăm VnEconomy và Invest Global",
-    venue: "BMC Center, Hà Nội",
-    organizers: "VnEconomy, Invest Global",
-    image: "/images/photos/canada-1.webp",
-    kind: "ngoai-giao",
-    needsReview: true,
-  },
-  {
-    slug: "thu-tuong-tiep-acme",
-    date: "2026-09-12",
-    dateLabel: "12/09/2026",
-    title: "Thủ tướng Lê Minh Hưng tiếp Phó Chủ tịch Tập đoàn ACME",
-    venue: "New Delhi, Ấn Độ",
-    organizers: "Bên lề Hội nghị Thượng đỉnh BRICS lần thứ 18",
-    detail: "Invest Global là đại diện tại Việt Nam của ACME trong lĩnh vực Hydrogen và Ammonia xanh.",
-    image: "/images/photos/acme-pm.webp",
-    kind: "doi-tac",
-    credit: "Ảnh: TTXVN",
-  },
-  {
-    slug: "interactive-meeting-wtc-mumbai",
-    date: "2026-05-08",
-    dateLabel: "08/05/2026",
-    title: "Interactive Meeting with International Investment, Trade & Tourism Alliance (Invest Global)",
-    venue: "Board Room, tầng 31, MVIRDC World Trade Center Mumbai",
-    organizers: "Chủ trì: Dr. Vijay Kalantri, Chủ tịch MVIRDC WTC Mumbai, Chủ tịch All India Association of Industries",
+    slug: "wtc-mumbai-2026",
+    source: "slide 24",
+    dateLabel: "8th May 2026 | 11.00 AM",
+    title: "Interactive Meeting with International Investment, Trade & Tourism Alliance (Invest Global), Vietnam",
+    venue: "Board Room, 31st Floor, Center 1, MVIRDC World Trade Center Mumbai Cuffe Parade - 400005.",
+    organizers: "Dr. Vijay Kalantri, Chairman, MVIRDC World Trade Center Mumbai and President, All India Association of Industries",
     detail:
-      "Ngành trọng tâm: năng lượng; công nghệ và kinh tế số; chế biến và sản xuất; dược và y tế; logistics và kết nối; du lịch và hàng không; nông nghiệp và nuôi trồng thủy sản.",
+      "Key Sectors: Energy, Technology & Digital Economy, Processing and Manufacturing Industry, Pharmaceuticals & Healthcare, Logistics & Connectivity, Tourism & Aviation, Agriculture & Aquaculture",
     image: "/images/events/2026-05-08-wtc-mumbai.webp",
-    kind: "su-kien",
   },
   {
-    slug: "ket-noi-doanh-nghiep-cii",
-    date: "2026-04-07",
-    dateLabel: "07/04/2026",
-    title: "Kết nối doanh nghiệp đa ngành nhân chuyến thăm của Liên đoàn Công nghiệp Ấn Độ (CII)",
-    venue: "Đại sứ quán Ấn Độ, Hà Nội",
-    organizers: "VPBA, CII, Invest Global",
-    image: "/images/events/2026-04-07-cii.webp",
-    kind: "su-kien",
-  },
-  {
-    slug: "duoc-pham-thiet-bi-y-te",
-    date: "2026-03-25",
-    dateLabel: "25/03/2026",
-    title: "Kết nối doanh nghiệp Ấn Độ – Việt Nam trong lĩnh vực dược phẩm và thiết bị y tế",
-    venue: "Đại sứ quán Ấn Độ, Hà Nội",
-    organizers: "INCHAM, Invest Global",
+    slug: "duoc-pham-2026",
+    source: "slide 24",
+    dateLabel: "Hanoi, 25 March 2026",
+    title: "Kết nối doanh nghiệp Ấn Độ - Việt Nam trong lĩnh vực dược phẩm & thiết bị y tế",
+    subtitle: "India - Viet Nam Pharmaceutical & Medical Equipment Business Meet",
+    venue: "Embassy of India, Vietnam",
     image: "/images/events/2026-03-25-duoc-pham.webp",
-    kind: "su-kien",
   },
   {
-    slug: "gap-go-doanh-nghiep-icc",
-    date: "2024-09-10",
-    dateLabel: "10/09/2024",
-    title: "Gặp gỡ doanh nghiệp đa ngành Ấn Độ – Việt Nam nhân chuyến thăm của Phòng Thương mại Ấn Độ (ICC)",
-    venue: "Phòng họp Invest Global, 98 Hoàng Quốc Việt, Hà Nội",
-    organizers: "ICC, INCHAM, Invest Global",
+    slug: "cii-2026",
+    source: "slide 24",
+    dateLabel: "Hanoi, 7 April 2026",
+    title: "Kết nối doanh nghiệp đa ngành nhân chuyến thăm của đoàn doanh nghiệp của Liên đoàn Công nghiệp Ấn Độ",
+    subtitle: "Multi-sectoral Business Meet on the occasion of visit of delegation from Confederation of Indian Industry",
+    venue: "Embassy of India, Vietnam",
+    image: "/images/events/2026-04-07-cii.webp",
+  },
+  {
+    slug: "icc-2024",
+    source: "slide 24",
+    dateLabel: "10th Sept 2024 at 15.00 - 17.00 hrs.",
+    title: "Gặp gỡ doanh nghiệp đa ngành Ấn Độ - Việt Nam nhân chuyến thăm của đoàn đại biểu Phòng Thương mại Ấn Độ",
+    subtitle: "India Vietnam Multi-sectoral Business Meet on the occasion of the visit of delegation from Indian Chamber of Commerce",
+    venue: "Investglobal Meeting Room, 98 Hoang Quoc Viet Street, Hanoi",
     image: "/images/events/2024-09-10-icc.webp",
-    kind: "su-kien",
   },
   {
-    slug: "india-vietnam-business-meet-2023",
-    date: "2023-11-24",
-    dateLabel: "24/11/2023",
+    slug: "business-meet-2023",
+    source: "slide 24",
+    dateLabel: "Hanoi, 24 November 2023",
     title: "India – Vietnam Business Meet",
-    venue: "Hà Nội",
-    organizers: "FICCI, INCHAM, Invest Global",
+    venue: "Embassy of India Hanoi",
     image: "/images/events/2023-11-24-business-meet.webp",
-    kind: "su-kien",
   },
   {
-    slug: "giao-thuong-cong-nghiep-o-to",
-    date: "2022-08-22",
-    dateLabel: "22/08/2022",
-    title: "Giao thương doanh nghiệp Ấn Độ – Việt Nam trong lĩnh vực công nghiệp ô tô",
-    venue: "Đại sứ quán Ấn Độ, Hà Nội",
-    organizers: "ACMA, VCCI, Invest Global",
+    slug: "auto-2022",
+    source: "slide 24",
+    dateLabel: "Hanoi, 22 August 2022",
+    title: "Giao thương doanh nghiệp Ấn Độ - Việt Nam trong lĩnh vực công nghiệp ô tô",
+    subtitle: "India Vietnam Business Meet on Auto Sector",
+    venue: "Embassy of India, Vietnam",
     image: "/images/events/2022-08-22-auto.webp",
-    kind: "su-kien",
   },
 ];
 
+/* Slide 25–26 */
+export const ambassadorVisits = [
+  {
+    id: "an-do",
+    source: "slide 25",
+    title: "Đại sứ Đặc mệnh Toàn quyền Ấn Độ tại Việt Nam thăm VnEconomy/Invest Global",
+    images: ["/images/photos/an-do-1.webp", "/images/photos/an-do-2.webp"],
+  },
+  {
+    id: "canada",
+    source: "slide 26",
+    title: "Đại sứ Đặc mệnh Toàn quyền Canada tại Việt Nam thăm VnEconomy/Invest Global",
+    images: ["/images/photos/canada-1.webp", "/images/photos/canada-2.webp"],
+  },
+];
+
+/* Slide 27–30 */
+export const certificatesTitle = "Bản quyền tác giả của Liên minh Invest Global";
 export const certificates: Certificate[] = [
-  { date: "09/2026", title: "Hệ sinh thái Kinh tế Biển Xanh (Blue Ocean Economy Ecosystem)" },
-  { date: "09/2026", title: "Phần mềm Hệ quản trị Cổng thông tin Invest Global" },
-  { date: "10/2025", title: "Nghiên cứu Chiến lược chuyển đổi xanh cho tỉnh Phú Thọ" },
+  { date: "Tháng 9 năm 2026", title: "Bản quyền Hệ sinh thái kinh tế biển xanh (Blue Ocean Economy Ecosystem)" },
+  { date: "Tháng 9 năm 2026", title: "Bản quyền phần mềm Hệ quản trị Cổng thông tin Invest Global" },
+  { date: "Tháng 10 năm 2025", title: "Bản quyền Nghiên cứu Chiến lược chuyển đổi xanh cho tỉnh Phú Thọ" },
   {
-    date: "09/2025",
-    title: "Nghiên cứu sản phẩm tín dụng và dịch vụ tài chính đặc thù cho hệ sinh thái công nghiệp đường sắt Việt Nam",
+    date: "Tháng 9 năm 2025",
+    title: "Bản quyền Nghiên cứu sản phẩm tín dụng và dịch vụ tài chính đặc thù, đặc biệt cho hệ sinh thái công nghiệp đường sắt Việt Nam",
   },
   {
-    date: "2023",
-    title: "Nghiên cứu phát triển hệ sinh thái Du lịch, Dịch vụ và Công viên nông nghiệp trong quy hoạch phân khu Đô thị Sông Hồng",
+    date: "Năm 2023",
+    title: "Bản quyền Nghiên cứu Phát triển Hệ sinh thái Du lịch, Dịch vụ và Công viên nông nghiệp trong quy hoạch phân khu Đô thị Sông Hồng",
   },
-  { date: "2020", title: "Nghiên cứu Cổng thông tin xúc tiến đầu tư, thương mại và du lịch quốc tế Trade Global" },
-  { date: "2019", title: "Nghiên cứu Cổng thông tin xúc tiến đầu tư, thương mại và du lịch quốc tế" },
-  { date: "2017", title: "Nghiên cứu Khu nghỉ dưỡng và chăm sóc sức khỏe cho người cao tuổi" },
+  { date: "Năm 2020", title: "Bản quyền Nghiên cứu Cổng thông tin xúc tiến đầu tư, thương mại và du lịch quốc tế Trade Global" },
+  { date: "Năm 2019", title: "Bản quyền Nghiên cứu Cổng thông tin xúc tiến đầu tư, thương mại và du lịch quốc tế" },
+  { date: "Năm 2017", title: "Bản quyền Nghiên cứu Khu nghỉ dưỡng và chăm sóc sức khỏe cho người cao tuổi" },
 ];

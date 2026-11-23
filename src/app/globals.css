@@ -1,10 +1,8 @@
 @import "tailwindcss";
 
-@import "@fontsource/be-vietnam-pro/400.css";
-@import "@fontsource/be-vietnam-pro/500.css";
-@import "@fontsource/be-vietnam-pro/700.css";
-@import "@fontsource/be-vietnam-pro/800.css";
+@import "@fontsource/roboto-condensed/400.css";
 @import "@fontsource/roboto-condensed/500.css";
+@import "@fontsource/roboto-condensed/700.css";
 
 @theme {
   --color-abyss: #061a3a;
@@ -20,11 +18,13 @@
   --color-rule: #d3e2e8;
   --color-red-brand: #c8102e;
 
-  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
-  --font-chart: "Roboto Condensed", "Arial Narrow", sans-serif;
+  /* Font của hồ sơ năng lực: Roboto Condensed (toàn bộ slide 9 trụ cột), Tahoma Bold (slide 23) */
+  --font-sans: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  --font-chart: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  --font-tahoma: Tahoma, Verdana, "Segoe UI", sans-serif;
 
-  --text-fine: 0.8125rem;
-  --text-body: 1.0625rem;
+  --text-fine: 0.95rem;
+  --text-body: 1.1875rem;
 }
 
 @layer base {
@@ -45,9 +45,10 @@
   h3,
   h4 {
     color: var(--color-navy);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: 0;
+    text-transform: uppercase;
     text-wrap: balance;
   }
   p {
@@ -81,8 +82,24 @@
   }
   .chart-note {
     font-family: var(--font-chart);
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    font-weight: 700;
+  }
+  .font-tahoma {
+    font-family: var(--font-tahoma);
+    font-weight: 700;
+  }
+  .num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    background: var(--color-kelp);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.125rem;
   }
   .on-dark h1,
   .on-dark h2,
@@ -98,7 +115,7 @@
     padding: 0.625rem 1.25rem;
     border-radius: 0.375rem;
     font-weight: 700;
-    font-size: 0.975rem;
+    font-size: 1.0625rem;
     line-height: 1.2;
     transition: background-color 150ms ease;
   }
@@ -141,38 +158,8 @@
   }
 }
 
-/* Hải đồ: tuyến hải trình vẽ ra một lần khi tải trang */
-.route {
-  stroke-dasharray: var(--len, 1200);
-  stroke-dashoffset: var(--len, 1200);
-  animation: draw-route 1.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-  animation-delay: var(--delay, 0s);
-}
-.route-node {
-  opacity: 0;
-  animation: show-node 0.5s ease-out forwards;
-  animation-delay: var(--delay, 0s);
-}
-@keyframes draw-route {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes show-node {
-  to {
-    opacity: 1;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .route {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
-  .route-node {
-    animation: none;
-    opacity: 1;
   }
 }

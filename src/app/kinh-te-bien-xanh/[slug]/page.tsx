@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CtaBand, IllustrationImage, PageHeader, Section } from "@/components/ui";
-import { pillars } from "@/content/pillars";
+import { Bullets, Num, PageHeader, Photo } from "@/components/ui";
+import { blueEconomy, pillars } from "@/content/pillars";
 
 export function generateStaticParams() {
   return pillars.map((p) => ({ slug: p.slug }));
@@ -14,6 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return p ? { title: `Trụ cột ${p.no}: ${p.title}`, description: p.tagline } : {};
 }
 
+/** Slide 34–42 */
 export default async function PillarPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const p = pillars.find((x) => x.slug === slug);
@@ -21,138 +22,167 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
   const idx = pillars.indexOf(p);
   const prev = pillars[idx - 1];
   const next = pillars[idx + 1];
+  const aside = p.sidePanel || p.highlight;
 
   return (
     <>
       <PageHeader
+        tag={`Trụ cột ${p.no}`}
         title={p.title}
         lead={p.tagline}
         crumbs={[
-          { href: "/kinh-te-bien-xanh", label: "Kinh tế Biển Xanh" },
+          { href: "/kinh-te-bien-xanh", label: blueEconomy.title },
           { href: `/kinh-te-bien-xanh/${p.slug}`, label: `Trụ cột ${p.no}` },
         ]}
-      >
-        {p.chips && (
-          <ul className="mt-8 flex flex-wrap gap-2" aria-label="Nền tảng công nghệ">
-            {p.chips.map((c) => (
-              <li key={c} className="chart-note rounded border border-brass/60 px-3 py-1 text-brass">
-                {c}
-              </li>
-            ))}
-          </ul>
-        )}
-      </PageHeader>
+      />
 
-      {p.values && (
+      {(p.values || p.chips) && (
         <section className="border-b border-rule bg-shoal">
-          <dl className="wrap grid gap-6 py-8 sm:grid-cols-2 lg:grid-cols-4">
-            {p.values.map((v) => (
-              <div key={v.title}>
-                <dt className="text-[1.15rem] font-bold text-kelp">{v.title}</dt>
-                <dd className="text-slate">{v.desc}</dd>
+          <div className="wrap py-8">
+            {p.chips && (
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="mr-3 text-[1.35rem] font-bold uppercase text-kelp">{p.chips.title}</p>
+                {p.chips.items.map((c) => (
+                  <span key={c} className="rounded-full bg-navy px-6 py-2 text-[1.15rem] font-bold text-white">
+                    {c}
+                  </span>
+                ))}
               </div>
-            ))}
-          </dl>
+            )}
+            {p.values && (
+              <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {p.values.map((v, i) => (
+                  <div key={v.title} className="flex items-start gap-3 rounded-lg bg-white p-4">
+                    <Num n={i + 1} />
+                    <div>
+                      <dt className="text-[1.3rem] font-bold uppercase text-kelp">{v.title}</dt>
+                      <dd className="text-[1.1rem] text-slate">{v.desc}</dd>
+                    </div>
+                  </div>
+                ))}
+              </dl>
+            )}
+          </div>
         </section>
       )}
 
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <ol className="divide-y divide-rule border-y border-rule">
-              {p.items.map((it, i) => (
-                <li key={it.title} className="py-6">
-                  <h2 className="flex items-baseline gap-3 text-[1.3rem]">
-                    <span className="chart-note text-teal">{String(i + 1).padStart(2, "0")}</span>
-                    {it.title}
-                  </h2>
-                  <ul className="mt-3 space-y-2 pl-9">
-                    {it.body.map((b) => (
-                      <li key={b} className="text-slate">
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ol>
+      <section className="bg-white py-14 md:py-20">
+        <div className="wrap">
+          <div className={`grid gap-4 ${p.images.length >= 4 ? "grid-cols-2 lg:grid-cols-4" : p.images.length === 3 ? "grid-cols-1 sm:grid-cols-3" : p.images.length === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
+            {p.images.map((src, i) => (
+              <Photo
+                key={src}
+                src={src}
+                alt={`${p.title} – ảnh ${i + 1}`}
+                className={`rounded-lg ${p.images.length === 1 ? "aspect-[16/7]" : "aspect-[4/3]"}`}
+                priority={i === 0}
+                sizes={p.images.length === 1 ? "100vw" : "(min-width:1024px) 30vw, 50vw"}
+              />
+            ))}
           </div>
-          <aside className="space-y-8 lg:col-span-5">
-            <IllustrationImage src={p.image} alt={p.title} className="aspect-[4/3] rounded-md" priority />
-            {p.vision && (
-              <div className="rounded-md bg-shoal p-6">
-                <h2 className="text-[1.1rem]">Tầm nhìn</h2>
-                <p className="mt-2 text-[1.05rem]">{p.vision}</p>
-              </div>
-            )}
-            {p.sidePanel && (
-              <div className="on-dark rounded-md bg-navy p-6 text-foam">
-                <h2 className="text-[1.15rem]">{p.sidePanel.title}</h2>
-                <ul className="mt-4 space-y-4">
-                  {p.sidePanel.items.map((s) => (
-                    <li key={s.title}>
-                      <p className="font-bold text-white">{s.title}</p>
-                      {s.desc && <p className="text-[0.95rem] text-foam/80">{s.desc}</p>}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </aside>
-        </div>
 
-        {p.chain && (
-          <div className="mt-16">
-            <h2 className="text-[1.5rem]">{p.chain.title}</h2>
-            <ol className="mt-6 grid gap-px overflow-hidden rounded-md bg-rule sm:grid-cols-3 lg:grid-cols-6">
-              {p.chain.steps.map((s, i) => (
-                <li key={s} className="bg-kelp p-4 text-white">
-                  <span className="chart-note text-fine text-white/70">{i + 1}</span>
-                  <p className="mt-1 font-semibold leading-snug">{s}</p>
+          <div className={`mt-12 grid gap-10 ${aside ? "lg:grid-cols-12" : ""}`}>
+            <ol className={`grid gap-6 md:grid-cols-2 ${aside ? "lg:col-span-8" : p.items.length === 3 ? "lg:grid-cols-3" : p.items.length === 5 ? "lg:grid-cols-3" : ""}`}>
+              {p.items.map((it, i) => (
+                <li key={it.title} className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+                  <div className="flex items-center gap-3">
+                    <Num n={i + 1} />
+                    <h2 className="text-[1.45rem] md:text-[1.6rem]">{it.title}</h2>
+                  </div>
+                  <Bullets items={it.body} className="mt-4 text-[1.15rem]" />
                 </li>
               ))}
             </ol>
+
+            {aside && (
+              <aside className="space-y-6 lg:col-span-4">
+                {p.highlight && (
+                  <p className="rounded-lg bg-shoal p-6 text-[1.25rem] font-medium leading-snug text-navy">
+                    {p.highlight.split("100% năng lượng tái tạo")[0]}
+                    {p.highlight.includes("100% năng lượng tái tạo") && (
+                      <>
+                        <strong className="text-kelp">100% năng lượng tái tạo</strong>
+                        {p.highlight.split("100% năng lượng tái tạo")[1]}
+                      </>
+                    )}
+                  </p>
+                )}
+                {p.sidePanel && (
+                  <div className="on-dark rounded-lg bg-navy p-6 text-white">
+                    <h2 className="text-[1.5rem]">{p.sidePanel.title}</h2>
+                    <ol className="mt-5 space-y-5">
+                      {p.sidePanel.items.map((s, i) => (
+                        <li key={s.title} className="flex items-start gap-3">
+                          <Num n={i + 1} />
+                          <div>
+                            <p className="text-[1.2rem] font-bold">{s.title}</p>
+                            {s.desc && <p className="text-[1.05rem] text-foam">{s.desc}</p>}
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                )}
+              </aside>
+            )}
           </div>
-        )}
-      </Section>
+
+          {p.chain && (
+            <div className="mt-14">
+              <h2 className="text-[1.6rem] text-kelp md:text-[2rem]">{p.chain.title}</h2>
+              <ol className="mt-6 grid gap-2 sm:grid-cols-3 lg:grid-cols-6">
+                {p.chain.steps.map((s) => (
+                  <li key={s} className="bg-kelp px-4 py-4 text-[1.15rem] font-bold text-white [clip-path:polygon(0_0,92%_0,100%_50%,92%_100%,0_100%)]">
+                    {s}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+        </div>
+      </section>
 
       {p.benefits.length > 0 && (
-        <Section tone="dark" title={p.benefitsTitle}>
-          <ul className="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-5">
-            {p.benefits.map((b) => (
-              <li key={b.title} className="border-t border-brass/60 pt-3">
-                <p className="font-bold text-white">{b.title}</p>
-                {b.desc && <p className="mt-1 text-[0.95rem] text-foam/80">{b.desc}</p>}
-              </li>
-            ))}
-          </ul>
-        </Section>
+        <section className="on-dark bg-navy text-white">
+          <div className="wrap grid gap-6 py-10 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-12">
+            <h2 className="text-[1.75rem]">{p.benefitsTitle}</h2>
+            <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+              {p.benefits.map((b) => (
+                <li key={b.title} className="flex gap-3">
+                  <span className="mt-2.5 h-2.5 w-2.5 shrink-0 rounded-full bg-kelp" aria-hidden="true" />
+                  <span>
+                    <span className="block text-[1.2rem] font-bold">{b.title}</span>
+                    {b.desc && <span className="block text-[1.05rem] text-foam">{b.desc}</span>}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       )}
 
       <nav aria-label="Trụ cột khác" className="border-t border-rule bg-white">
-        <div className="wrap flex flex-wrap justify-between gap-4 py-8">
+        <div className="wrap flex flex-wrap justify-between gap-4 py-8 text-[1.15rem]">
           {prev ? (
             <Link href={`/kinh-te-bien-xanh/${prev.slug}`} className="link">
-              Trụ cột {prev.no}: {prev.shortTitle}
+              ← Trụ cột {prev.no}: {prev.shortTitle}
             </Link>
           ) : (
             <Link href="/kinh-te-bien-xanh" className="link">
-              Về tổng quan 9 trụ cột
+              ← {blueEconomy.title}
             </Link>
           )}
           {next ? (
             <Link href={`/kinh-te-bien-xanh/${next.slug}`} className="link">
-              Trụ cột {next.no}: {next.shortTitle}
+              Trụ cột {next.no}: {next.shortTitle} →
             </Link>
           ) : (
             <Link href="/kinh-te-bien-xanh" className="link">
-              Về tổng quan 9 trụ cột
+              {blueEconomy.title} →
             </Link>
           )}
         </div>
       </nav>
-
-      <CtaBand title="Đề xuất dự án Kinh tế Biển Xanh" text="Gửi thông tin dự án hoặc nhu cầu hợp tác để Invest Global sàng lọc, chuẩn hóa hồ sơ và kết nối nguồn lực phù hợp." />
     </>
   );
 }

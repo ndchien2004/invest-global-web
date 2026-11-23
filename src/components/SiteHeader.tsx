@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const mainNav = [
+  { href: "/kinh-te-bien-xanh", label: "9 trụ cột Kinh tế Biển Xanh" },
   { href: "/gioi-thieu", label: "Giới thiệu" },
-  { href: "/dich-vu", label: "Dịch vụ" },
   { href: "/linh-vuc", label: "Lĩnh vực" },
-  { href: "/kinh-te-bien-xanh", label: "Kinh tế Biển Xanh" },
+  { href: "/dich-vu", label: "Dịch vụ" },
   { href: "/mang-luoi", label: "Mạng lưới" },
   { href: "/doi-tac", label: "Đối tác" },
   { href: "/tin-tuc", label: "Sự kiện" },
@@ -31,12 +31,12 @@ export default function SiteHeader() {
       >
         Bỏ qua tới nội dung
       </a>
-      <div className="wrap flex h-[4.25rem] items-center gap-6">
+      <div className="wrap flex h-[4.75rem] items-center gap-6">
         <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Invest Global, về trang chủ">
-          <Image src="/images/brand/logo.webp" alt="" width={159} height={129} className="h-11 w-auto" priority />
-          <span className="hidden leading-tight sm:block lg:hidden xl:block">
-            <span className="block text-[0.95rem] font-extrabold tracking-tight text-navy">Invest Global</span>
-            <span className="block text-[0.75rem] text-slate">Liên minh Tư vấn và Đầu tư Quốc tế</span>
+          <Image src="/images/brand/logo.webp" alt="" width={159} height={129} className="h-14 w-auto" priority />
+          <span className="hidden leading-tight sm:block lg:hidden 2xl:block">
+            <span className="block text-[1.15rem] font-bold uppercase text-navy">Invest Global</span>
+            <span className="block text-[0.9rem] text-slate">Liên minh Tư vấn và Đầu tư Quốc tế</span>
           </span>
         </Link>
 
@@ -47,7 +47,7 @@ export default function SiteHeader() {
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`whitespace-nowrap rounded px-2 py-2 text-[0.9rem] font-medium transition-colors hover:text-teal ${
+                  className={`whitespace-nowrap rounded px-2 py-2 text-[1.05rem] font-bold transition-colors hover:text-teal ${
                     isActive(item.href) ? "text-teal underline decoration-2 underline-offset-[10px]" : "text-ink"
                   }`}
                 >
@@ -59,7 +59,7 @@ export default function SiteHeader() {
         </nav>
 
         <Link href="/lien-he" className="btn btn-primary ml-auto hidden whitespace-nowrap md:inline-flex lg:ml-2">
-          Gửi nhu cầu đầu tư
+          Liên hệ
         </Link>
 
         <button
@@ -88,7 +88,7 @@ export default function SiteHeader() {
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className="block border-b border-rule py-3 font-medium text-ink"
+                  className="block border-b border-rule py-3 text-[1.1rem] font-bold text-ink"
                 >
                   {item.label}
                 </Link>
@@ -96,7 +96,7 @@ export default function SiteHeader() {
             ))}
             <li className="pt-4">
               <Link href="/lien-he" className="btn btn-primary w-full justify-center">
-                Gửi nhu cầu đầu tư
+                Liên hệ
               </Link>
             </li>
           </ul>

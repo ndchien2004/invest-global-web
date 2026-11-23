@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CtaBand, IllustrationImage, PageHeader, Section } from "@/components/ui";
-import { pillars } from "@/content/pillars";
-import { sectorRole, sectors } from "@/content/sectors";
+import { Bullets, Num, PageHeader, Photo } from "@/components/ui";
+import { roleTitle, sectors } from "@/content/sectors";
 
 export function generateStaticParams() {
   return sectors.map((s) => ({ slug: s.slug }));
@@ -15,17 +14,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return s ? { title: s.title, description: s.lead } : {};
 }
 
+/** Slide 12–17 */
 export default async function SectorPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const s = sectors.find((x) => x.slug === slug);
   if (!s) notFound();
-  const related = pillars.filter((p) => s.relatedPillars.includes(p.no));
   const idx = sectors.indexOf(s);
   const next = sectors[(idx + 1) % sectors.length];
+  let n = 0;
 
   return (
     <>
       <PageHeader
+        tag={`Lĩnh vực ${s.no}`}
         title={s.title}
         lead={s.lead}
         crumbs={[
@@ -33,88 +34,64 @@ export default async function SectorPage({ params }: { params: Promise<{ slug: s
           { href: `/linh-vuc/${s.slug}`, label: `Lĩnh vực ${s.no}` },
         ]}
       />
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            {s.items.length === 1 ? (
-              <>
-                <h2 className="text-[1.75rem]">{s.items[0].title}</h2>
-                <ul className="mt-6 space-y-4">
-                  {s.items[0].body.map((b) => (
-                    <li key={b} className="flex gap-3 text-[1.1rem]">
-                      <span className="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-teal" aria-hidden="true" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : (
-              <dl className="divide-y divide-rule border-y border-rule">
-                {s.items.map((it) => (
-                  <div key={it.title} className="grid gap-2 py-6 md:grid-cols-12 md:gap-6">
-                    <dt className="text-[1.15rem] font-bold text-navy md:col-span-5">{it.title}</dt>
-                    <dd className="text-slate md:col-span-7">{it.body.join(" ")}</dd>
-                  </div>
-                ))}
-              </dl>
-            )}
-
-            {s.connectTargets && (
-              <div className="mt-12">
-                <h2 className="text-[1.5rem]">Đối tượng kết nối</h2>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {s.connectTargets.map((c) => (
-                    <li key={c} className="rounded bg-shoal px-3 py-1.5 font-medium">
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {s.message && (
-              <blockquote className="mt-12 border-l-2 border-teal pl-6 text-[1.35rem] font-semibold leading-snug text-navy">
-                “{s.message}”
-              </blockquote>
-            )}
-          </div>
-
-          <aside className="space-y-8 lg:col-span-5">
-            <IllustrationImage src={s.image} alt={s.title} className="aspect-[4/3] rounded-md" />
-            <div className="rounded-md bg-shoal p-6">
-              <h2 className="text-[1.15rem]">Vai trò của Invest Global</h2>
-              <ol className="mt-4 space-y-2">
-                {sectorRole.map((r, i) => (
-                  <li key={r} className="flex gap-3">
-                    <span className="chart-note text-teal">{i + 1}</span>
-                    {r}
-                  </li>
-                ))}
-              </ol>
+      <section className="bg-white py-14 md:py-20">
+        <div className="wrap grid gap-10 lg:grid-cols-12">
+          <aside className="space-y-6 lg:col-span-4">
+            {s.images.map((src) => (
+              <Photo key={src} src={src} alt={s.overviewTitle} className="aspect-[4/3] rounded-lg" />
+            ))}
+            <div className="rounded-lg bg-shoal p-6">
+              <h2 className="text-[1.35rem] text-kelp">
+                {String(s.no).padStart(2, "0")}. {s.overviewTitle}
+              </h2>
+              <Bullets items={s.summary} className="mt-3 text-[1.1rem]" />
             </div>
-            {related.length > 0 && (
-              <div>
-                <h2 className="text-[1.15rem]">Trụ cột Kinh tế Biển Xanh liên quan</h2>
-                <ul className="mt-3 space-y-2">
-                  {related.map((p) => (
-                    <li key={p.slug}>
-                      <Link href={`/kinh-te-bien-xanh/${p.slug}`} className="link">
-                        Trụ cột {p.no}: {p.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </aside>
+          <div className="lg:col-span-8">
+            <ol className={`grid gap-6 ${s.items.length > 1 ? "md:grid-cols-2" : ""}`}>
+              {s.items.map((it) => {
+                n += 1;
+                return (
+                  <li key={it.title} className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+                    <div className="flex items-center gap-3">
+                      <Num n={n} />
+                      <h2 className="text-[1.5rem]">{it.title}</h2>
+                    </div>
+                    <Bullets items={it.body} className="mt-4 text-[1.15rem]" />
+                  </li>
+                );
+              })}
+              {s.connectTargets && (
+                <li className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+                  <div className="flex items-center gap-3">
+                    <Num n={++n} />
+                    <h2 className="text-[1.5rem]">Đối tượng kết nối</h2>
+                  </div>
+                  <Bullets items={s.connectTargets} className="mt-4 text-[1.15rem]" />
+                </li>
+              )}
+              {s.message && (
+                <li className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+                  <div className="flex items-center gap-3">
+                    <Num n={++n} />
+                    <h2 className="text-[1.5rem]">Thông điệp</h2>
+                  </div>
+                  <p className="mt-4 text-[1.3rem] font-bold leading-snug text-navy">{s.message}</p>
+                </li>
+              )}
+            </ol>
+            <div className="on-dark mt-8 rounded-lg bg-navy p-6 text-white">
+              <h2 className="text-[1.5rem]">{roleTitle}</h2>
+              <p className="mt-2 text-[1.25rem] font-bold">{s.role}</p>
+            </div>
+          </div>
         </div>
-        <div className="mt-16 border-t border-rule pt-6">
+        <div className="wrap mt-14 border-t border-rule pt-6 text-[1.15rem]">
           <Link href={`/linh-vuc/${next.slug}`} className="link">
-            Lĩnh vực tiếp theo: {next.title}
+            Lĩnh vực {next.no}: {next.title} →
           </Link>
         </div>
-      </Section>
-      <CtaBand />
+      </section>
     </>
   );
 }

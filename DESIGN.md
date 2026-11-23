@@ -1,40 +1,22 @@
 # Invest Global web — ghi chú thiết kế
 
-## Chủ đề, người xem, nhiệm vụ
-- **Chủ đề:** liên minh xúc tiến đầu tư FDI, trọng tâm Kinh tế Biển Xanh.
-- **Người xem:** nhà đầu tư nước ngoài (Ấn Độ, Canada, Nhật…), doanh nghiệp Việt Nam, cơ quan nhà nước.
-- **Nhiệm vụ chính:** tạo uy tín (mạng lưới, ngoại giao, sự kiện thật) và dẫn tới hành động “Gửi nhu cầu đầu tư”.
-
-## Ý tưởng: hải đồ (nautical chart)
-Điểm nhấn duy nhất là **hải đồ** ở hero: các đường đẳng sâu mảnh, lưới kinh vĩ độ và các tuyến hải trình nối Hà Nội tới 7 điểm trong mạng lưới quốc tế. Các tuyến tự vẽ ra một lần khi tải trang. Ghi chú trên hải đồ (toạ độ, tên điểm, năm, số bước) dùng Roboto Condensed, giống chữ chú thích trên hải đồ thật. Phần còn lại của trang giữ yên tĩnh, kỷ luật.
-
-## Màu
-| Tên | Hex | Vai trò |
-|---|---|---|
-| Abyss | `#061A3A` | Nền tối: hero, hub Kinh tế Biển Xanh, footer |
-| Navy | `#0A2E63` | Tiêu đề, thương hiệu (màu dùng nhiều nhất trong deck) |
-| Chart teal | `#0F6E7A` | Đường kẻ, link, tuyến hải trình trên nền sáng |
-| Kelp | `#0B7A54` | Nút hành động chính (chữ trắng 5.4:1) |
-| Brass | `#C9A45C` | Điểm gốc Hà Nội, mốc 2026, chi tiết trên nền tối (không dùng trên nền sáng) |
-| Shoal | `#EAF4F7` | Nền xen kẽ |
-| Ink / Slate | `#0B1D3A` / `#4E5E78` | Chữ thân / chữ phụ |
+## Nguyên tắc nội dung (bắt buộc)
+- Mọi chữ hiển thị là **nguyên văn hồ sơ năng lực** (PDF “(chỉnh) … V6”, 43 slide). Chỉ sửa lỗi chính tả.
+- **Không thêm** câu giới thiệu, tiêu đề phụ, chú thích, số liệu, ngày tháng hay nhãn phân loại không có trong deck.
+- Mỗi khối dữ liệu trong `src/content` ghi số slide nguồn để đối chiếu.
+- Trọng tâm của website: **9 trụ cột Kinh tế Biển Xanh** (slide 31–42), xuất hiện ngay sau hero và đứng đầu menu.
 
 ## Chữ
-- **Be Vietnam Pro** (thiết kế cho tiếng Việt): tiêu đề 800, thân 400/500, 17px/1.65.
-- **Roboto Condensed** 500: chỉ dùng cho ghi chú hải đồ, ngày tháng, số bước. Viết thường theo câu, không IN HOA giãn chữ.
-- Thang 1.25: 14 · 17 · 21 · 26 · 33 · 41 · 52 · 64.
+- **Roboto Condensed** (font của deck, toàn bộ slide 9 trụ cột): tiêu đề Bold in hoa như tiêu đề slide, thân 400/500, cỡ thân 19px.
+- **Tahoma Bold**: riêng khối slide 23 (Đối tác chiến lược: tập đoàn đa quốc gia), giữ đúng font slide.
 
-## Bố cục
-Căn trái, cột chữ ≤ 68ch, khung 1200px. Danh sách dùng hàng kẻ mảnh thay cho lưới card bo góc giống nhau. Chỉ đánh số khi nội dung là chuỗi thật: quy trình 6 bước, hành trình, 9 trụ cột (tên chính thức “Trụ cột 1…9”).
+## Màu (lấy từ deck và logo)
+Navy `#0A2E63` (thanh tiêu đề) · Abyss `#061A3A` · Xanh lá `#0B7A54` (nhãn “Trụ cột N”, số thứ tự, nút) · Vàng `#C9A45C` (mốc 2026, hover timeline) · Nền nhạt `#EAF4F7`.
 
-## Ảnh
-- **Ảnh minh họa** (lĩnh vực, trụ cột): duotone abyss → teal → foam. Cách này thống nhất tông màu, che độ phân giải thấp và giảm cảm giác ảnh AI.
-- **Ảnh tư liệu thật** (đại sứ, sự kiện, ACME, Suzlon, trụ sở): giữ màu gốc, có chú thích. Đây là bằng chứng.
+## Bố cục bám slide
+- Trang trụ cột: nhãn xanh “TRỤ CỘT N” + tiêu đề + tagline → giá trị / nền tảng công nghệ → hàng ảnh như slide → thẻ đánh số viền xanh → khối bên (Chống chịu BĐKH, Công cụ tài chính xanh, Lĩnh vực ứng dụng…) → dải navy “Giá trị mang lại / Tác động / Đóng góp chiến lược”.
+- Ảnh giữ **màu gốc** như deck.
+- Đối tác: thẻ logo + tên như slide 20–22.
 
-## Tự soát so với mặc định
-- Bỏ eyebrow IN HOA trên mỗi heading (mặc định chung) → heading đứng một mình, ghi chú hải đồ chỉ dùng khi có dữ liệu thật (toạ độ, ngày).
-- Bỏ lưới card bóng mờ giống nhau → hàng kẻ, bảng, và một số khối nền tối.
-- Bỏ hiệu ứng fade-up cho từng section → chỉ một chuyển động: tuyến hải trình vẽ ra ở hero.
-
-## Pháp lý (brief §10.4)
-Không dùng hình Quốc huy; logo đối tác ẩn (`SHOW_PARTNER_LOGOS=false`) cho tới khi được phép; giấy chứng nhận bản quyền chỉ hiển thị dạng danh sách (ảnh có thông tin cá nhân); ảnh báo chí ghi nguồn.
+## Ghi chú pháp lý
+Trang Đối tác hiển thị logo theo deck (gồm Quốc huy ở các Bộ ngành) theo yêu cầu khách hàng. Cần đảm bảo Liên minh có quyền sử dụng các logo này trên website công khai.

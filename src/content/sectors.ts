@@ -1,107 +1,128 @@
 import type { Sector } from "./types";
 
+/* Slide 11 */
+export const sectorsTitle = "Lĩnh vực hoạt động trọng tâm";
 export const sectorsLead =
   "Kết nối cơ hội đầu tư với công nghệ, nguồn vốn, thị trường và triển khai thực tế tại Việt Nam.";
+export const roleTitle = "Vai trò của Invest Global";
 
-/** Vai trò của Invest Global — lặp lại ở mọi lĩnh vực */
-export const sectorRole = ["Sàng lọc cơ hội", "Chuẩn hóa hồ sơ", "Kết nối nguồn lực", "Hỗ trợ đối thoại triển khai"];
-
+/* Slide 12–17 */
 export const sectors: Sector[] = [
   {
     slug: "nang-luong-sach",
+    source: "slide 12",
     no: 1,
-    title: "Năng lượng sạch và chuyển đổi xanh",
-    lead: "Kết nối địa điểm, công nghệ, vốn và thị trường cho các cơ hội đầu tư dài hạn.",
-    summary: ["Điện gió, điện mặt trời", "Hydrogen và amoniac xanh", "Lưu trữ năng lượng và giải pháp linh hoạt"],
+    title: "Năng lượng sạch & chuyển đổi xanh",
+    overviewTitle: "Năng lượng sạch và chuyển đổi xanh",
+    lead: "Kết nối địa điểm - Công nghệ - Vốn - Thị trường cho các cơ hội đầu tư dài hạn",
+    summary: ["Điện gió, điện mặt trời.", "Hydrogen/Amoniac xanh.", "Lưu trữ năng lượng và giải pháp linh hoạt."],
     items: [
       {
         title: "Trọng tâm",
         body: [
           "Điện gió, điện mặt trời và lưu trữ năng lượng.",
-          "Hydrogen, amoniac xanh và giải pháp năng lượng cho công nghiệp.",
+          "Hydrogen/amoniac xanh và giải pháp năng lượng cho công nghiệp.",
           "Năng lượng cho hạ tầng biển và chuỗi cung ứng xanh.",
           "Sàng lọc địa điểm, công nghệ, thị trường; cấu trúc dự án và hồ sơ đầu tư.",
         ],
       },
     ],
-    connectTargets: ["Nhà phát triển dự án", "Nhà sản xuất thiết bị", "Tổng thầu EPC", "Quỹ hạ tầng, ngân hàng và khách hàng tiêu thụ"],
-    relatedPillars: [2],
-    image: "/images/sectors/lv1.webp",
+    connectTargets: ["Nhà phát triển.", "Nhà sản xuất thiết bị.", "EPC.", "Quỹ hạ tầng, ngân hàng và khách hàng tiêu thụ."],
+    role: "Sàng lọc cơ hội - Chuẩn hóa hồ sơ - Kết nối nguồn lực - Hỗ trợ đối thoại triển khai.",
+    images: ["/images/sectors/lv1.webp"],
   },
   {
     slug: "ha-tang-logistics",
+    source: "slide 13",
     no: 2,
-    title: "Hạ tầng, giao thông và logistics",
-    lead: "Tích hợp quy hoạch, hạ tầng kết nối, công nghệ, cấu trúc vốn và xúc tiến đầu tư.",
-    summary: ["Đường sắt, cao tốc, sân bay", "Cảng biển, trung tâm logistics", "Chuỗi lạnh và logistics thông minh"],
+    title: "Hạ tầng, giao thông & logistics",
+    overviewTitle: "Hạ tầng, giao thông và logistics",
+    lead: "Tích hợp quy hoạch, hạ tầng kết nối, công nghệ, cấu trúc vốn và xúc tiến đầu tư",
+    summary: ["Đường sắt, cao tốc, sân bay.", "Cảng biển, trung tâm logistics.", "Chuỗi lạnh và logistics thông minh."],
     items: [
       { title: "Hạ tầng giao thông", body: ["Đường sắt, metro, giao thông đô thị, cảng và kết nối vùng."] },
       { title: "Logistics", body: ["Trung tâm logistics, kho bãi, chuỗi lạnh, cảng cạn và hạ tầng thương mại."] },
-      { title: "Đô thị và TOD", body: ["Phát triển đô thị gắn với hạ tầng giao thông và khai thác giá trị đất."] },
+      { title: "Đô thị & TOD", body: ["Phát triển đô thị gắn hạ tầng và khai thác giá trị đất."] },
       { title: "Dịch vụ tư vấn", body: ["Pre-FS/FS, đối tác công nghệ, cấu trúc vốn và xúc tiến đầu tư."] },
     ],
-    relatedPillars: [3, 5],
-    image: "/images/sectors/lv2.webp",
+    role: "Sàng lọc cơ hội - chuẩn hóa hồ sơ - kết nối nguồn lực - hỗ trợ đối thoại triển khai.",
+    images: ["/images/sectors/lv2.webp"],
   },
   {
     slug: "cong-nghe-so",
+    source: "slide 14",
     no: 3,
     title: "Công nghệ số, AI, bán dẫn và trung tâm dữ liệu",
-    lead: "Hạ tầng số làm nền tảng cho FDI thế hệ mới và các ngành công nghệ chiến lược.",
-    summary: ["Hạ tầng AI và trung tâm dữ liệu", "Bán dẫn, điện tử và thiết bị thông minh", "IoT, nền tảng số và an ninh mạng"],
+    overviewTitle: "Công nghệ số, AI, điện tử – bán dẫn & trung tâm dữ liệu",
+    lead: "Hạ tầng số làm nền tảng cho FDI thế hệ mới và các ngành công nghệ chiến lược",
+    summary: ["Hạ tầng AI và trung tâm dữ liệu.", "Bán dẫn, điện tử và thiết bị thông minh.", "IoT, nền tảng số và an ninh mạng."],
     items: [
       { title: "Trung tâm dữ liệu", body: ["Điện, kết nối, đất, hạ tầng, thiết kế, khách hàng và cấu trúc đầu tư."] },
       { title: "AI và hạ tầng số", body: ["Hệ thống tính toán, dữ liệu, nền tảng số và ứng dụng doanh nghiệp."] },
-      { title: "Điện tử và bán dẫn", body: ["Chuỗi cung ứng, vật liệu, đóng gói và kiểm thử, nhân lực và công nghệ."] },
-      { title: "Nhân lực", body: ["Kết nối đào tạo với nhu cầu kỹ sư, chuyên gia công nghệ cao."] },
+      { title: "Điện tử và bán dẫn", body: ["Chuỗi cung ứng, vật liệu, đóng gói/kiểm thử, nhân lực và công nghệ."] },
+      { title: "Nhân lực", body: ["Kết nối đào tạo và nhu cầu kỹ sư, chuyên gia công nghệ cao."] },
     ],
-    relatedPillars: [6],
-    image: "/images/sectors/lv3.webp",
+    role: "Sàng lọc cơ hội - Chuẩn hóa hồ sơ - Kết nối nguồn lực - Hỗ trợ triển khai.",
+    images: ["/images/sectors/lv3.webp"],
   },
   {
     slug: "cong-nghiep-nong-nghiep",
+    source: "slide 15",
     no: 4,
-    title: "Công nghiệp, nông nghiệp và chuỗi cung ứng",
-    lead: "Kết nối FDI với năng lực sản xuất trong nước và thị trường quốc tế.",
-    summary: ["Sản xuất công nghệ cao", "Nông nghiệp công nghệ cao và chế biến", "Chuỗi cung ứng, xuất khẩu và truy xuất nguồn gốc"],
+    title: "Công nghiệp, nông nghiệp & chuỗi cung ứng",
+    overviewTitle: "Công nghiệp, nông nghiệp & chuỗi cung ứng",
+    lead: "Kết nối FDI với năng lực sản xuất trong nước và thị trường quốc tế",
+    summary: ["Sản xuất công nghệ cao.", "Nông nghiệp công nghệ cao và chế biến.", "Chuỗi cung ứng, xuất khẩu và truy xuất nguồn gốc."],
     items: [
       {
         title: "Năng lực kết nối đa ngành",
         body: [
-          "Từ công nghiệp chế tạo, ô tô, phụ tùng, dược phẩm, nông nghiệp, chế biến thực phẩm, gỗ, điện, điện tử đến các ngành công nghiệp hỗ trợ.",
+          "Phạm vi từ công nghiệp chế tạo, ô tô, phụ tùng, dược phẩm, nông nghiệp, chế biến thực phẩm, gỗ, điện, điện tử đến các ngành công nghiệp hỗ trợ.",
         ],
       },
       { title: "Công nghiệp chế tạo", body: ["Nhà máy, dây chuyền, vật liệu, tự động hóa."] },
-      { title: "Nông nghiệp công nghệ cao", body: ["Vùng nguyên liệu, nuôi trồng, chế biến sâu, truy xuất nguồn gốc."] },
+      { title: "Nông nghiệp CNC", body: ["Vùng nguyên liệu, nuôi trồng, chế biến sâu, truy xuất."] },
       {
-        title: "Chuỗi cung ứng và thương mại quốc tế",
+        title: "Chuỗi cung ứng & thương mại quốc tế",
         body: ["Nhà cung cấp, logistics, xuất nhập khẩu, tiêu chuẩn; hội chợ, triển lãm, phân phối."],
       },
     ],
-    relatedPillars: [1, 4],
-    image: "/images/sectors/lv4.webp",
+    role: "Sàng lọc cơ hội - Chuẩn hóa hồ sơ - Kết nối nguồn lực - Hỗ trợ đối thoại triển khai.",
+    images: ["/images/sectors/lv4.webp", "/images/sectors/lv4-2.webp"],
   },
   {
     slug: "thuong-mai-du-lich-y-te",
+    source: "slide 16",
     no: 5,
     title: "Thương mại, dịch vụ, du lịch và chăm sóc sức khỏe",
-    lead: "Nhóm lĩnh vực kết hợp đầu tư, thương mại, trải nghiệm và phát triển thị trường.",
-    summary: ["Thương mại, bán lẻ và dịch vụ cao cấp", "Du lịch, nghỉ dưỡng và bất động sản dịch vụ", "Y tế chất lượng cao và giáo dục quốc tế"],
-    items: [
-      { title: "Du lịch và nghỉ dưỡng", body: ["Dự án điểm đến, sinh thái, trải nghiệm và dịch vụ."] },
-      { title: "Y tế và sức khỏe", body: ["Dịch vụ chăm sóc sức khỏe, dược phẩm và công nghệ y tế."] },
-      { title: "Thương mại", body: ["Trung tâm thương mại, phân phối và kết nối thị trường."] },
-      { title: "Giáo dục và nhân lực", body: ["Đào tạo, kỹ năng, hợp tác quốc tế và nguồn nhân lực."] },
+    overviewTitle: "Thương mại, dịch vụ, du lịch & chăm sóc sức khỏe",
+    lead: "Nhóm lĩnh vực có khả năng kết hợp đầu tư, thương mại, trải nghiệm và phát triển thị trường",
+    summary: [
+      "Thương mại, bán lẻ và dịch vụ cao cấp.",
+      "Du lịch, nghỉ dưỡng và bất động sản dịch vụ.",
+      "Y tế chất lượng cao và giáo dục quốc tế.",
     ],
-    relatedPillars: [9],
-    image: "/images/sectors/lv5.webp",
+    items: [
+      { title: "Du lịch & nghỉ dưỡng", body: ["Dự án điểm đến, sinh thái, trải nghiệm và dịch vụ."] },
+      { title: "Y tế & sức khỏe", body: ["Dịch vụ chăm sóc sức khỏe, dược phẩm và công nghệ y tế."] },
+      { title: "Thương mại", body: ["Trung tâm thương mại, phân phối và kết nối thị trường."] },
+      { title: "Giáo dục & nhân lực", body: ["Đào tạo, kỹ năng, hợp tác quốc tế và nguồn nhân lực."] },
+    ],
+    role: "Sàng lọc cơ hội - Chuẩn hóa hồ sơ - Kết nối nguồn lực - Hỗ trợ đối thoại triển khai.",
+    images: ["/images/sectors/lv5.webp"],
   },
   {
     slug: "von-xanh-esg",
+    source: "slide 17",
     no: 6,
     title: "Thu xếp vốn xanh gắn với ESG",
-    lead: "Tiêu chuẩn hóa để dự án đáp ứng điều kiện giải ngân.",
-    summary: ["ESG, đánh giá tác động và phát triển bền vững", "Dữ liệu, minh bạch và đo lường hiệu quả", "Chuẩn hóa hồ sơ và kết nối dòng vốn xanh"],
+    overviewTitle: "Thu xếp vốn xanh gắn với ESG",
+    lead: "Tiêu chuẩn hóa để dự án đáp ứng điều kiện giải ngân",
+    summary: [
+      "ESG, đánh giá tác động và phát triển bền vững.",
+      "Dữ liệu, minh bạch và đo lường hiệu quả.",
+      "Chuẩn hóa hồ sơ và kết nối dòng vốn xanh.",
+    ],
     items: [
       {
         title: "Giá trị tư vấn",
@@ -113,9 +134,8 @@ export const sectors: Sector[] = [
         ],
       },
     ],
-    message:
-      "Dự án tốt cần đồng thời có dữ liệu, cấu trúc, tiêu chuẩn, khả năng thẩm định và cơ chế triển khai.",
-    relatedPillars: [7],
-    image: "/images/sectors/lv6.webp",
+    message: "Dự án tốt cần đồng thời có dữ liệu, cấu trúc, tiêu chuẩn, khả năng thẩm định và cơ chế triển khai.",
+    role: "Sàng lọc cơ hội - Chuẩn hóa hồ sơ - Kết nối nguồn lực - Hỗ trợ triển khai.",
+    images: ["/images/sectors/lv6.webp"],
   },
 ];

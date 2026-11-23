@@ -1,6 +1,9 @@
-/** Cờ nội dung — xem brief §4. `needsReview` = khách hàng cần xác nhận trước khi go-live. */
+/**
+ * Quy ước nội dung: mọi chuỗi trong thư mục này là NGUYÊN VĂN từ hồ sơ năng lực
+ * (PDF “(chỉnh) … V6”, 43 slide). Chỉ sửa lỗi chính tả, không thêm câu chữ mới.
+ * `source` ghi số slide để đối chiếu.
+ */
 export interface Meta {
-  needsReview?: boolean;
   source?: string;
 }
 
@@ -9,41 +12,50 @@ export interface NumberedItem {
   body: string[];
 }
 
-export interface Sector extends Meta {
-  slug: string;
-  no: number;
-  title: string;
-  lead: string;
-  summary: string[];
-  items: NumberedItem[];
-  connectTargets?: string[];
-  message?: string;
-  relatedPillars: number[];
-  image: string;
-}
-
 export interface ValueItem {
   title: string;
   desc?: string;
 }
 
+export interface Sector extends Meta {
+  slug: string;
+  no: number;
+  /** tiêu đề ở trang chi tiết (slide 12–17) */
+  title: string;
+  /** tiêu đề ở trang tổng quan (slide 11) */
+  overviewTitle: string;
+  lead: string;
+  summary: string[];
+  items: NumberedItem[];
+  connectTargets?: string[];
+  message?: string;
+  role: string;
+  images: string[];
+}
+
 export interface Pillar extends Meta {
   slug: string;
   no: number;
+  /** tiêu đề trang chi tiết (slide 34–42) */
   title: string;
+  /** tiêu đề ở slide 31 */
   shortTitle: string;
+  /** mô tả 1 dòng ở slide 31 */
   excerpt: string;
+  /** tiêu đề ở slide 32–33 */
+  focusTitle: string;
   focus: string[];
   tagline: string;
   values?: ValueItem[];
   items: NumberedItem[];
   sidePanel?: { title: string; items: ValueItem[] };
-  chips?: string[];
+  chips?: { title: string; items: string[] };
   chain?: { title: string; steps: string[] };
-  vision?: string;
-  benefitsTitle: string;
+  highlight?: string;
+  benefitsTitle?: string;
   benefits: ValueItem[];
-  image: string;
+  thumb: string;
+  images: string[];
 }
 
 export interface Milestone {
@@ -58,32 +70,32 @@ export interface Member {
 }
 
 export interface NetworkNode {
-  id: string;
   country: string;
   sectors: string[];
-  /** toạ độ trên hải đồ (lon, lat) */
-  lon: number;
-  lat: number;
 }
 
-export interface PartnerGroup {
+export interface Partner {
+  name: string;
+  logo: string;
+}
+
+export interface PartnerGroup extends Meta {
   id: string;
   title: string;
   note?: string;
-  partners: string[];
+  banner?: string;
+  partners: Partner[];
 }
 
 export interface EventItem extends Meta {
   slug: string;
-  date: string; // ISO
   dateLabel: string;
   title: string;
-  venue: string;
-  organizers: string;
+  subtitle?: string;
+  venue?: string;
+  organizers?: string;
   detail?: string;
-  image?: string;
-  kind: "su-kien" | "ngoai-giao" | "doi-tac";
-  credit?: string;
+  image: string;
 }
 
 export interface Certificate {
