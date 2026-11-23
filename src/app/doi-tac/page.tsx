@@ -33,10 +33,10 @@ export default function PartnersPage() {
               {g.title}
             </h2>
             {g.note && <p className="mt-4 max-w-[70ch] text-[1.25rem] font-medium text-slate">{g.note}</p>}
-            <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+            <ul className="mt-8 flex flex-wrap justify-center gap-3">
               {g.partners.map((p) => (
-                <li key={p.name} className="flex flex-col items-center rounded-md bg-white px-3 pb-4 pt-6 text-center shadow-[0_1px_4px_rgba(10,46,99,0.12)]">
-                  <div className="relative h-12 w-full">
+                <li key={p.name} className="flex w-[calc((100%-0.75rem)/2)] flex-col items-center justify-center rounded-md bg-white px-3 py-5 sm:w-[calc((100%-2.25rem)/4)] lg:w-[calc((100%-3.75rem)/6)] text-center shadow-[0_1px_4px_rgba(10,46,99,0.12)]">
+                  <div className="relative h-14 w-full">
                     <Image src={p.logo} alt={`Logo ${p.name.replace("\n", " ")}`} fill sizes="140px" className="object-contain" />
                   </div>
                   <p className="mt-3 flex min-h-[2.5em] items-center justify-center whitespace-pre-line text-[0.95rem] font-bold leading-tight text-navy">{p.name}</p>
