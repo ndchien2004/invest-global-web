@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NetworkGlobe } from "@/components/NetworkGlobe";
+import { NetworkMap } from "@/components/NetworkMap";
 import { Num, PageHeader } from "@/components/ui";
 import { members, network, networkPage } from "@/content/org";
 
@@ -14,7 +14,7 @@ export default function NetworkPage() {
         <div className="wrap">
           <h2 className="text-[1.75rem] md:text-[2.25rem]">{networkPage.globalTitle}</h2>
           <div className="mt-8">
-            <NetworkGlobe nodes={network} />
+            <NetworkMap nodes={network} />
           </div>
         </div>
       </section>

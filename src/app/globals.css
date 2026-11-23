@@ -140,27 +140,54 @@
   .btn-ghost:hover {
     background: var(--color-shoal);
   }
-  .globe-label {
-    position: absolute;
-    bottom: anchor(top);
-    left: anchor(center);
-    translate: -50% -6px;
-    padding: 0.15rem 0.55rem;
-    border-radius: 9999px;
-    background: rgb(6 26 58 / 0.85);
-    color: #fff;
-    font-size: 0.85rem;
+  .netmap-stage {
+    perspective: 1600px;
+  }
+  .netmap-plane {
+    transform: rotateX(22deg);
+    transform-origin: 50% 60%;
+  }
+  .netmap-label {
+    font-size: 2.4px;
     font-weight: 700;
-    white-space: nowrap;
-    pointer-events: none;
-    transition: opacity 0.3s;
+    paint-order: stroke;
+    stroke: #061a3a;
+    stroke-width: 0.5px;
   }
-  .globe-label-hub {
-    background: var(--color-brass);
-    color: var(--color-abyss);
+  .netmap-label-hub {
+    font-size: 2.8px;
   }
-  .globe-label-active {
-    outline: 2px solid var(--color-brass);
+  .netmap-arc {
+    stroke-dasharray: 1.2 0.8;
+    animation: netmap-flow 2.4s linear infinite;
+    transition: opacity 0.2s, stroke-width 0.2s;
+  }
+  .netmap-pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0.35;
+    animation: netmap-pulse 2.4s ease-out infinite;
+  }
+  @keyframes netmap-flow {
+    to {
+      stroke-dashoffset: -4;
+    }
+  }
+  @keyframes netmap-pulse {
+    0% {
+      transform: scale(0.4);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1.6);
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .netmap-arc,
+    .netmap-pulse {
+      animation: none;
+    }
   }
   .lb-btn {
     display: inline-flex;
