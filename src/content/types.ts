@@ -103,4 +103,5 @@ export interface EventItem extends Meta {
 export interface Certificate {
   date: string;
   title: string;
+  image: string;
 }

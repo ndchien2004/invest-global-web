@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const mainNav = [
+  { href: "/nang-luc", label: "Bản quyền tác giả" },
   { href: "/gioi-thieu", label: "Giới thiệu" },
   { href: "/linh-vuc", label: "Lĩnh vực" },
   { href: "/dich-vu", label: "Dịch vụ" },

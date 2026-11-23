@@ -383,18 +383,18 @@ export const ambassadorVisits = [
 /* Slide 27–30 */
 export const certificatesTitle = "Bản quyền tác giả của Liên minh Invest Global";
 export const certificates: Certificate[] = [
-  { date: "Tháng 9 năm 2026", title: "Bản quyền Hệ sinh thái kinh tế biển xanh (Blue Ocean Economy Ecosystem)" },
-  { date: "Tháng 9 năm 2026", title: "Bản quyền phần mềm Hệ quản trị Cổng thông tin Invest Global" },
-  { date: "Tháng 10 năm 2025", title: "Bản quyền Nghiên cứu Chiến lược chuyển đổi xanh cho tỉnh Phú Thọ" },
+  { date: "Tháng 9 năm 2026", image: "/images/certificates/cert-1.webp", title: "Bản quyền Hệ sinh thái kinh tế biển xanh (Blue Ocean Economy Ecosystem)" },
+  { date: "Tháng 9 năm 2026", image: "/images/certificates/cert-2.webp", title: "Bản quyền phần mềm Hệ quản trị Cổng thông tin Invest Global" },
+  { date: "Tháng 10 năm 2025", image: "/images/certificates/cert-3.webp", title: "Bản quyền Nghiên cứu Chiến lược chuyển đổi xanh cho tỉnh Phú Thọ" },
   {
-    date: "Tháng 9 năm 2025",
+    date: "Tháng 9 năm 2025", image: "/images/certificates/cert-4.webp",
     title: "Bản quyền Nghiên cứu sản phẩm tín dụng và dịch vụ tài chính đặc thù, đặc biệt cho hệ sinh thái công nghiệp đường sắt Việt Nam",
   },
   {
-    date: "Năm 2023",
+    date: "Năm 2023", image: "/images/certificates/cert-5.webp",
     title: "Bản quyền Nghiên cứu Phát triển Hệ sinh thái Du lịch, Dịch vụ và Công viên nông nghiệp trong quy hoạch phân khu Đô thị Sông Hồng",
   },
-  { date: "Năm 2020", title: "Bản quyền Nghiên cứu Cổng thông tin xúc tiến đầu tư, thương mại và du lịch quốc tế Trade Global" },
-  { date: "Năm 2019", title: "Bản quyền Nghiên cứu Cổng thông tin xúc tiến đầu tư, thương mại và du lịch quốc tế" },
-  { date: "Năm 2017", title: "Bản quyền Nghiên cứu Khu nghỉ dưỡng và chăm sóc sức khỏe cho người cao tuổi" },
+  { date: "Năm 2020", image: "/images/certificates/cert-6.webp", title: "Bản quyền Nghiên cứu Cổng thông tin xúc tiến đầu tư, thương mại và du lịch quốc tế Trade Global" },
+  { date: "Năm 2019", image: "/images/certificates/cert-7.webp", title: "Bản quyền Nghiên cứu Cổng thông tin xúc tiến đầu tư, thương mại và du lịch quốc tế" },
+  { date: "Năm 2017", image: "/images/certificates/cert-8.webp", title: "Bản quyền Nghiên cứu Khu nghỉ dưỡng và chăm sóc sức khỏe cho người cao tuổi" },
 ];
