@@ -52,7 +52,7 @@ export default async function SectorPage({ params }: { params: Promise<{ slug: s
               {s.items.map((it) => {
                 n += 1;
                 return (
-                  <li key={it.title} className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+                  <li key={it.title} className="rounded-lg bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
                     <div className="flex items-center gap-3">
                       <Num n={n} />
                       <h2 className="text-[1.5rem]">{it.title}</h2>
@@ -62,7 +62,7 @@ export default async function SectorPage({ params }: { params: Promise<{ slug: s
                 );
               })}
               {s.connectTargets && (
-                <li className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+                <li className="rounded-lg bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
                   <div className="flex items-center gap-3">
                     <Num n={++n} />
                     <h2 className="text-[1.5rem]">Đối tượng kết nối</h2>
@@ -71,7 +71,7 @@ export default async function SectorPage({ params }: { params: Promise<{ slug: s
                 </li>
               )}
               {s.message && (
-                <li className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+                <li className="rounded-lg bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
                   <div className="flex items-center gap-3">
                     <Num n={++n} />
                     <h2 className="text-[1.5rem]">Thông điệp</h2>

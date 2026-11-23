@@ -15,7 +15,7 @@ export default function ServicesPage() {
       <Section>
         <ol className="grid gap-6 lg:grid-cols-3">
           {services.map((s, i) => (
-            <li key={s.id} id={s.id} className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+            <li key={s.id} id={s.id} className="rounded-lg bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
               <div className="flex items-center gap-3">
                 <Num n={i + 1} />
                 <h2 className="text-[1.6rem]">{s.title}</h2>

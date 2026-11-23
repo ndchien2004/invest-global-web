@@ -21,7 +21,7 @@ export default function PromotionPage() {
         </ul>
         <ol className="mt-12 grid gap-6 md:grid-cols-3">
           {promotion.channels.map((c, i) => (
-            <li key={c.title} className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+            <li key={c.title} className="rounded-lg bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
               <div className="flex items-center gap-3">
                 <Num n={i + 1} />
                 <h3 className="text-[1.5rem]">{c.title}</h3>

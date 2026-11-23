@@ -43,7 +43,7 @@ export default function DigitalPage() {
           </div>
           <ol className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
             {modules.items.map((m) => (
-              <li key={m.name} className="rounded-lg border-t-4 border-kelp bg-white p-5 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+              <li key={m.name} className="rounded-lg bg-white p-5 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
                 <p className="text-[1rem] font-bold uppercase text-slate">{m.module}</p>
                 <p className="text-[1.5rem] font-bold uppercase text-[#C8102E]">{m.name}</p>
                 <p className="mt-1 text-[1.15rem] text-navy">{m.desc}</p>

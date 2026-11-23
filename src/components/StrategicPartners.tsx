@@ -39,7 +39,7 @@ export default function StrategicPartners() {
                 href={p.article.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 text-[1.05rem] text-teal underline underline-offset-4 hover:text-navy"
+                className="mt-3 text-[1.05rem] font-bold text-teal hover:text-navy"
               >
                 Đọc bài báo trên {p.article.source} ↗
               </a>

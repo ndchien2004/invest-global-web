@@ -8,7 +8,7 @@ export function PillarGrid() {
   return (
     <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {pillars.map((p) => (
-        <li key={p.slug} className="border-t-4 border-kelp bg-white shadow-sm">
+        <li key={p.slug} className="rounded-lg bg-white shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
           <Link href={`/kinh-te-bien-xanh/${p.slug}`} className="group flex h-full gap-4 p-4">
             <div className="relative h-28 w-28 shrink-0 overflow-hidden bg-shoal sm:h-32 sm:w-32">
               <Image src={p.thumb} alt={p.shortTitle} fill sizes="128px" className="object-cover" />

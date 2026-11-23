@@ -84,7 +84,7 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
           <div className={`mt-12 grid gap-10 ${aside ? "lg:grid-cols-12" : ""}`}>
             <ol className={`grid gap-6 md:grid-cols-2 ${aside ? "lg:col-span-8" : p.items.length === 3 ? "lg:grid-cols-3" : p.items.length === 5 ? "lg:grid-cols-3" : ""}`}>
               {p.items.map((it, i) => (
-                <li key={it.title} className="rounded-lg border-t-4 border-kelp bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
+                <li key={it.title} className="rounded-lg bg-white p-6 shadow-[0_1px_6px_rgba(10,46,99,0.12)]">
                   <div className="flex items-center gap-3">
                     <Num n={i + 1} />
                     <h2 className="text-[1.45rem] md:text-[1.6rem]">{it.title}</h2>
