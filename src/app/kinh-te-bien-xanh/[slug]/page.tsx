@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Bullets, Num, PageHeader, Photo } from "@/components/ui";
+import Image from "next/image";
+import { Bullets, Num, PageHeader } from "@/components/ui";
+import { imageAspect } from "@/content/imageAspect";
 import { blueEconomy, pillars } from "@/content/pillars";
 
 export function generateStaticParams() {
@@ -68,17 +70,37 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
 
       <section className="bg-white py-14 md:py-20">
         <div className="wrap">
-          <div className={`grid gap-4 ${p.images.length >= 4 ? "grid-cols-2 lg:grid-cols-4" : p.images.length === 3 ? "grid-cols-1 sm:grid-cols-3" : p.images.length === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
-            {p.images.map((src, i) => (
-              <Photo
-                key={src}
-                src={src}
-                alt={`${p.title} – ảnh ${i + 1}`}
-                className={`rounded-lg ${p.images.length === 1 ? "aspect-[16/7]" : "aspect-[4/3]"}`}
-                priority={i === 0}
-                sizes={p.images.length === 1 ? "100vw" : "(min-width:1024px) 30vw, 50vw"}
-              />
-            ))}
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+            <div className="rounded-lg bg-shoal p-6 lg:col-span-5">
+              <h2 className="text-[1.4rem] text-kelp md:text-[1.5rem]">Định hướng trọng tâm</h2>
+              <Bullets items={p.focus} className="mt-4 text-[1.15rem]" />
+            </div>
+            <div className="lg:col-span-7">
+              <div
+                className="flex gap-3"
+                style={{ maxWidth: `calc(15rem * ${p.images.reduce((a, src) => a + (imageAspect[src] ?? 4 / 3), 0).toFixed(3)} + ${(p.images.length - 1) * 0.75}rem)` }}
+              >
+                {p.images.map((src, i) => {
+                  const ar = imageAspect[src] ?? 4 / 3;
+                  return (
+                    <div
+                      key={src}
+                      className="relative overflow-hidden rounded-lg bg-shoal"
+                      style={{ flex: `${ar} 1 0`, aspectRatio: ar }}
+                    >
+                      <Image
+                        src={src}
+                        alt={`${p.title} – ảnh ${i + 1}`}
+                        fill
+                        sizes="(min-width:1024px) 30vw, 50vw"
+                        className="object-cover"
+                        priority={i === 0}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
           <div className={`mt-12 grid gap-10 ${aside ? "lg:grid-cols-12" : ""}`}>

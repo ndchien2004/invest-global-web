@@ -77,25 +77,25 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="dark" title={milestonesTitle}>
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-10 lg:grid-cols-12">
           <ol className="relative border-l-2 border-white/25 lg:col-span-8">
             {milestones.map((m) => (
-              <li key={m.year} className="group relative cursor-default pb-10 pl-10 last:pb-0">
+              <li key={m.year} className="group relative cursor-default pb-5 pl-8 last:pb-0 md:grid md:grid-cols-[8.75rem_1fr] md:items-baseline md:gap-4">
                 <span
                   aria-hidden="true"
-                  className={`absolute -left-[11px] top-2 h-5 w-5 rounded-full border-[3px] transition-colors duration-200 ${
+                  className={`absolute -left-[10px] top-2 h-[18px] w-[18px] rounded-full border-[3px] transition-colors duration-200 ${
                     m.current ? "border-brass bg-brass" : "border-foam bg-abyss group-hover:border-brass group-hover:bg-brass"
                   }`}
                 />
                 <p
-                  className={`text-[1.75rem] font-bold leading-tight transition-colors duration-200 md:text-[2rem] ${
+                  className={`whitespace-nowrap text-[1.6rem] font-bold leading-tight transition-colors duration-200 md:text-[1.75rem] ${
                     m.current ? "text-brass" : "text-foam group-hover:text-brass"
                   }`}
                 >
                   {m.year}
                 </p>
                 <p
-                  className={`mt-1 text-[1.35rem] leading-snug transition-colors duration-200 md:text-[1.5rem] ${
+                  className={`text-[1.25rem] leading-snug transition-colors duration-200 md:text-[1.35rem] ${
                     m.current ? "text-brass" : "text-white group-hover:text-brass"
                   }`}
                 >
@@ -105,7 +105,7 @@ export default function AboutPage() {
             ))}
           </ol>
           <figure className="self-start border-l-4 border-brass pl-8 lg:col-span-4">
-            <blockquote className="text-[1.75rem] font-bold leading-snug text-white">“{leaderQuote}”</blockquote>
+            <blockquote className="text-[1.5rem] font-bold leading-snug text-white">“{leaderQuote}”</blockquote>
             <figcaption className="mt-6 text-[1.25rem] text-foam">
               <span className="block font-bold text-white">{org.leader.name}</span>
               {org.leader.title}
