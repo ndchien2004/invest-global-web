@@ -1,3 +1,4 @@
+import { Waves } from "@/components/Waves";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -18,6 +19,7 @@ export function PageHeader({
 }) {
   return (
     <section data-hero className="on-dark relative overflow-hidden bg-navy text-foam">
+      <Waves />
       <div className="wrap relative py-10 md:py-14">
         {crumbs && (
           <nav aria-label="Đường dẫn" className="mb-5 text-[1.2rem] font-medium text-foam md:text-[1.3rem]">
@@ -70,7 +72,11 @@ export function Section({
   return (
     <section id={id} className={`${toneClass} scroll-mt-20 py-12 md:py-16 ${className}`}>
       <div className="wrap">
-        {title && <h2 className="max-w-[26ch] text-[2.25rem] md:text-[3.25rem]">{title}</h2>}
+        {title && (
+          <h2 className="section-title max-w-[26ch] text-[2.25rem] md:text-[3.25rem]">
+            <span className="section-title-inner">{title}</span>
+          </h2>
+        )}
         {lead && (
           <p className={`mt-3 max-w-[64ch] text-[1.3rem] font-medium leading-snug md:text-[1.5rem] ${tone === "dark" ? "text-foam" : "text-slate"}`}>
             {lead}

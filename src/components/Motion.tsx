@@ -50,7 +50,84 @@ export default function Motion() {
       { rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
     );
     els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+
+    const cleanups: (() => void)[] = [() => io.disconnect()];
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    // Thẻ nghiêng 3D theo con trỏ + vệt sáng
+    if (fine) {
+      document.querySelectorAll<HTMLElement>("[data-tilt]").forEach((card) => {
+        const move = (e: PointerEvent) => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+          card.style.setProperty("--ry", `${(px - 0.5) * 8}deg`);
+          card.style.setProperty("--rx", `${(0.5 - py) * 8}deg`);
+          card.style.setProperty("--gx", `${px * 100}%`);
+          card.style.setProperty("--gy", `${py * 100}%`);
+          card.classList.add("is-tilting");
+        };
+        const leave = () => {
+          card.classList.remove("is-tilting");
+          card.style.setProperty("--rx", "0deg");
+          card.style.setProperty("--ry", "0deg");
+        };
+        card.addEventListener("pointermove", move);
+        card.addEventListener("pointerleave", leave);
+        cleanups.push(() => {
+          card.removeEventListener("pointermove", move);
+          card.removeEventListener("pointerleave", leave);
+        });
+      });
+    }
+
+    // Hero: ảnh và chữ dịch nhẹ theo chuột
+    const hero = document.querySelector<HTMLElement>("[data-parallax]");
+    if (hero && fine) {
+      let raf = 0;
+      const move = (e: PointerEvent) => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const r = hero.getBoundingClientRect();
+          hero.style.setProperty("--mx", `${((e.clientX - r.left) / r.width - 0.5) * 2}`);
+          hero.style.setProperty("--my", `${((e.clientY - r.top) / r.height - 0.5) * 2}`);
+        });
+      };
+      const leave = () => {
+        hero.style.setProperty("--mx", "0");
+        hero.style.setProperty("--my", "0");
+      };
+      hero.addEventListener("pointermove", move);
+      hero.addEventListener("pointerleave", leave);
+      cleanups.push(() => {
+        hero.removeEventListener("pointermove", move);
+        hero.removeEventListener("pointerleave", leave);
+        cancelAnimationFrame(raf);
+      });
+    }
+
+    // Mốc thời gian: đường kẻ vẽ dần theo cuộn
+    const lines = Array.from(document.querySelectorAll<HTMLElement>("[data-timeline]"));
+    if (lines.length) {
+      let raf = 0;
+      const update = () => {
+        const vh = window.innerHeight;
+        for (const el of lines) {
+          const r = el.getBoundingClientRect();
+          const p = Math.min(1, Math.max(0, (vh * 0.75 - r.top) / r.height));
+          el.style.setProperty("--tl", p.toFixed(3));
+        }
+      };
+      const onScroll = () => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(update);
+      };
+      update();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      cleanups.push(() => window.removeEventListener("scroll", onScroll));
+    }
+
+    return () => cleanups.forEach((f) => f());
   }, [pathname]);
 
   return null;

@@ -78,7 +78,7 @@ export default function AboutPage() {
 
       <Section tone="dark" title={milestonesTitle}>
         <div className="grid gap-10 lg:grid-cols-12">
-          <ol className="relative border-l-2 border-white/25 lg:col-span-8">
+          <ol data-timeline className="timeline relative border-l-2 border-white/15 lg:col-span-8">
             {milestones.map((m) => (
               <li key={m.year} className="group relative cursor-default pb-5 pl-8 last:pb-0 md:grid md:grid-cols-[8.75rem_1fr] md:items-baseline md:gap-4">
                 <span

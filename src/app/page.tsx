@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GoalsStrip, PillarFocus, PillarGrid } from "@/components/pillars";
 import StrategicPartners from "@/components/StrategicPartners";
+import { Waves } from "@/components/Waves";
 import { Bullets, Num, Photo, Section } from "@/components/ui";
 import { differentiators, differentiatorsTitle, founders, org, strategy } from "@/content/org";
 import { blueEconomy } from "@/content/pillars";
@@ -11,7 +12,8 @@ export default function HomePage() {
   return (
     <>
       {/* Slide 1 */}
-      <section data-hero className="hero on-dark relative overflow-hidden bg-navy text-white">
+      <section data-hero data-parallax className="hero on-dark relative overflow-hidden bg-navy text-white">
+        <Waves tall />
         <div
           aria-hidden="true"
           className="hero-art pointer-events-none absolute inset-y-0 right-0 hidden aspect-[771/847] lg:block"
@@ -25,7 +27,7 @@ export default function HomePage() {
             <p className="mt-4 text-[1.6rem] font-bold uppercase md:text-[2.1rem]">{org.subtitle}</p>
             <p className="mt-6 max-w-[40ch] text-[1.3rem] font-medium text-foam md:text-[1.5rem]">{org.taglineText}</p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/kinh-te-bien-xanh" className="btn btn-primary text-[1.15rem]">
+              <Link href="/kinh-te-bien-xanh" className="btn btn-primary btn-sheen text-[1.15rem]">
                 9 trụ cột Kinh tế Biển Xanh
               </Link>
               <Link href="/lien-he" className="btn btn-ghost-dark text-[1.15rem]">

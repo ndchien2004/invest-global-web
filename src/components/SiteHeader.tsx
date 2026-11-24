@@ -23,7 +23,12 @@ export default function SiteHeader() {
 
   useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const bar = document.getElementById("scroll-progress");
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar?.style.setProperty("--p", String(max > 0 ? Math.min(1, window.scrollY / max) : 0));
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -114,6 +119,7 @@ export default function SiteHeader() {
           </ul>
         </nav>
       )}
+      <div id="scroll-progress" aria-hidden="true" className="scroll-progress" />
     </header>
   );
 }

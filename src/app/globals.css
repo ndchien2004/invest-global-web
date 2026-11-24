@@ -372,6 +372,199 @@ main a img {
   transform: scaleX(1);
 }
 
+/* ───────────── Điểm nhấn ───────────── */
+
+/* Thanh tiến độ cuộn */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-kelp), var(--color-brass));
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+}
+
+/* Sóng biển */
+.waves {
+  overflow: hidden;
+}
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+}
+.wave path {
+  fill: currentColor;
+}
+.wave-1 {
+  color: rgb(62 207 142 / 0.07);
+  animation: wave-drift 26s linear infinite;
+}
+.wave-2 {
+  color: rgb(201 164 92 / 0.06);
+  height: 80%;
+  animation: wave-drift 18s linear infinite reverse;
+}
+.wave-3 {
+  color: rgb(6 26 58 / 0.55);
+  height: 55%;
+  animation: wave-drift 34s linear infinite;
+}
+@keyframes wave-drift {
+  to {
+    translate: -50% 0;
+  }
+}
+
+/* Hero: parallax theo chuột */
+[data-parallax] .hero-art {
+  translate: calc(var(--mx, 0) * -14px) calc(var(--my, 0) * -10px);
+  transition: translate 0.6s var(--ease-out);
+}
+[data-parallax] .hero-copy {
+  translate: calc(var(--mx, 0) * 6px) calc(var(--my, 0) * 4px);
+  transition: translate 0.6s var(--ease-out);
+}
+
+/* Nút chính: vệt sáng lướt qua định kỳ */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.35) 50%, transparent 70%);
+  translate: -120% 0;
+  animation: sheen 4.5s var(--ease-out) 1.6s infinite;
+}
+@keyframes sheen {
+  0%,
+  60% {
+    translate: -120% 0;
+  }
+  100% {
+    translate: 120% 0;
+  }
+}
+
+/* Tiêu đề section: chữ trồi lên khỏi mặt nạ + vạch nhấn tự vẽ */
+.section-title {
+  position: relative;
+  padding-top: 0.15em;
+  margin-top: -0.15em;
+  padding-bottom: 0.9rem;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 4.5rem;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--color-kelp), var(--color-brass));
+}
+html.motion main section h2.section-title:not([data-hero] *) {
+  opacity: 1;
+  translate: 0 0;
+  overflow: hidden;
+}
+html.motion .section-title-inner {
+  display: block;
+  translate: 0 105%;
+  transition: translate 0.85s var(--ease-out) var(--rd, 0ms);
+}
+html.motion .section-title.is-in .section-title-inner {
+  translate: 0 0;
+}
+html.motion .section-title::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s var(--ease-out) 0.45s;
+}
+html.motion .section-title.is-in::after {
+  transform: scaleX(1);
+}
+
+/* Ảnh "lắng" về khung khi xuất hiện */
+html.motion :is(main li, main figure, main [data-reveal]):not([data-hero] *):not(.is-in) img {
+  scale: 1.12;
+}
+html.motion :is(main li, main figure, main [data-reveal]).is-in img {
+  transition: scale 1.4s var(--ease-out) var(--rd, 0ms);
+}
+
+/* Số thứ tự bật nhẹ */
+html.motion .is-in .num-badge {
+  animation: pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--rd, 0ms) + 0.2s) both;
+}
+@keyframes pop {
+  from {
+    scale: 0.4;
+    opacity: 0;
+  }
+}
+
+/* Thẻ 9 trụ cột: nghiêng 3D theo con trỏ + vệt sáng */
+@media (hover: hover) and (pointer: fine) {
+  [data-tilt] {
+    position: relative;
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition:
+      transform 0.5s var(--ease-out),
+      box-shadow 0.3s var(--ease-out),
+      opacity 0.6s var(--ease-out) var(--rd, 0ms),
+      translate 0.6s var(--ease-out) var(--rd, 0ms);
+  }
+  [data-tilt].is-tilting {
+    transition:
+      transform 0.12s linear,
+      box-shadow 0.3s var(--ease-out);
+  }
+  main :is(ul, ol):is(.grid, .flex-wrap) > li[data-tilt]:hover {
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px);
+    box-shadow: 0 18px 36px -16px rgb(10 46 99 / 0.45);
+  }
+  [data-tilt]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgb(255 255 255 / 0.55), transparent 55%);
+    opacity: 0;
+    mix-blend-mode: soft-light;
+    transition: opacity 0.3s;
+  }
+  [data-tilt]:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Mốc thời gian: đường kẻ vàng vẽ dần */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(var(--color-brass), #3ecf8e);
+  transform: scaleY(var(--tl, 1));
+  transform-origin: top;
+}
+html.motion .timeline::before {
+  transform: scaleY(var(--tl, 0));
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

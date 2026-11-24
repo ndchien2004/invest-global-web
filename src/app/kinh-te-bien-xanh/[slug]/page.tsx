@@ -92,6 +92,7 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
                     return (
                       <div
                         key={src}
+                        data-reveal
                         className={`relative overflow-hidden rounded-lg bg-shoal ${row.length === 1 ? "col-span-2" : ""}`}
                         style={{ aspectRatio: row.length === 1 ? Math.max(imageAspect[src] ?? 4 / 3, 1.5) : ar }}
                       >
