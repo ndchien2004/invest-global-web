@@ -11,15 +11,15 @@ export default function HomePage() {
   return (
     <>
       {/* Slide 1 */}
-      <section className="on-dark relative overflow-hidden bg-navy text-white">
+      <section data-hero className="hero on-dark relative overflow-hidden bg-navy text-white">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 hidden aspect-[771/847] lg:block"
+          className="hero-art pointer-events-none absolute inset-y-0 right-0 hidden aspect-[771/847] lg:block"
         >
           <Image src="/images/hero/cover-slide1.webp" alt="" fill priority sizes="50vw" className="object-cover object-right" />
         </div>
         <div className="wrap relative grid items-center py-14 md:py-20 lg:min-h-[38rem] lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className="hero-copy lg:col-span-7">
             <p className="text-[1.15rem] font-bold text-[#3ecf8e]">{org.initiative}</p>
             <h1 className="mt-4 text-[3.5rem] leading-none md:text-[5.5rem]">{org.shortName}</h1>
             <p className="mt-4 text-[1.6rem] font-bold uppercase md:text-[2.1rem]">{org.subtitle}</p>

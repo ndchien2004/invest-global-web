@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Motion from "@/components/Motion";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { org } from "@/content/org";
@@ -40,9 +41,15 @@ const orgJsonLd = {
   },
 };
 
+const MOTION_BOOT = `(function(){try{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;var d=document.documentElement;d.classList.add("motion");setTimeout(function(){if(!window.__motionReady)d.classList.remove("motion")},4000)}catch(e){}})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi">
+    <html lang="vi" suppressHydrationWarning>
+      <head>
+        {/* bật hiệu ứng trước khi vẽ để không nháy; tự tắt nếu JS lỗi hoặc người dùng chọn giảm chuyển động */}
+        <script dangerouslySetInnerHTML={{ __html: MOTION_BOOT }} />
+      </head>
       <body className="flex min-h-dvh flex-col antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
         <SiteHeader />
@@ -50,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <SiteFooter />
+        <Motion />
       </body>
     </html>
   );

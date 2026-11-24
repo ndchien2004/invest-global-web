@@ -19,22 +19,33 @@ export const mainNav = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-rule bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
+    <header
+      className={`sticky top-0 z-50 border-b bg-white/95 backdrop-blur transition-[box-shadow,border-color] duration-300 supports-[backdrop-filter]:bg-white/85 ${
+        scrolled ? "border-transparent shadow-[0_6px_20px_-12px_rgba(10,46,99,0.35)]" : "border-rule"
+      }`}
+    >
       <a
         href="#noi-dung"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded focus:bg-navy focus:px-3 focus:py-2 focus:text-white"
       >
         Bỏ qua tới nội dung
       </a>
-      <div className="wrap flex h-[4.75rem] items-center gap-6">
+      <div className={`wrap flex items-center gap-6 transition-[height] duration-300 ${scrolled ? "h-16" : "h-[4.75rem]"}`}>
         <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Invest Global, về trang chủ">
-          <Image src="/images/brand/logo.webp" alt="" width={159} height={129} className="h-14 w-auto" priority />
+          <Image src="/images/brand/logo.webp" alt="" width={159} height={129} className={`w-auto transition-[height] duration-300 ${scrolled ? "h-11" : "h-14"}`} priority />
           <span className="hidden leading-tight sm:block lg:hidden 2xl:block">
             <span className="block text-[1.15rem] font-bold uppercase text-navy">Invest Global</span>
             <span className="block text-[0.9rem] text-slate">Liên minh Tư vấn và Đầu tư Quốc tế</span>
@@ -48,8 +59,8 @@ export default function SiteHeader() {
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`whitespace-nowrap rounded px-2 py-2 text-[1.05rem] font-bold transition-colors hover:text-teal ${
-                    isActive(item.href) ? "text-teal underline decoration-2 underline-offset-[10px]" : "text-ink"
+                  className={`nav-link whitespace-nowrap rounded px-2 py-2 text-[1.05rem] font-bold transition-colors hover:text-teal ${
+                    isActive(item.href) ? "text-teal" : "text-ink"
                   }`}
                 >
                   {item.label}

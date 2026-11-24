@@ -17,7 +17,7 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <section className="on-dark relative overflow-hidden bg-navy text-foam">
+    <section data-hero className="on-dark relative overflow-hidden bg-navy text-foam">
       <div className="wrap relative py-10 md:py-14">
         {crumbs && (
           <nav aria-label="Đường dẫn" className="mb-5 text-[1.2rem] font-medium text-foam md:text-[1.3rem]">
