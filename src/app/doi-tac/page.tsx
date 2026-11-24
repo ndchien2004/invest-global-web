@@ -29,7 +29,7 @@ export default function PartnersPage() {
       {partnerGroups.map((g, gi) => {
         const big = g.id === "bo-nganh";
         return (
-        <section key={g.id} id={g.id} aria-labelledby={`${g.id}-h`} className={`scroll-mt-24 py-14 md:py-20 ${gi % 2 ? "bg-white" : "bg-shoal"}`}>
+        <section key={g.id} id={g.id} aria-labelledby={`${g.id}-h`} className={`scroll-mt-28 py-14 md:py-20 ${gi % 2 ? "bg-white" : "bg-shoal"}`}>
           <div className="wrap">
             {/* nhóm Bộ ngành (8 đơn vị): 2 hàng × 4 thẻ lớn */}
             <h2 id={`${g.id}-h`} className="text-[1.9rem] md:text-[2.6rem]">

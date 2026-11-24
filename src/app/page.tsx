@@ -20,7 +20,7 @@ export default function HomePage() {
         >
           <Image src="/images/hero/cover-slide1.webp" alt="" fill priority sizes="50vw" className="object-cover object-right" />
         </div>
-        <div className="wrap relative grid items-center py-14 md:py-20 lg:min-h-[38rem] lg:grid-cols-12">
+        <div className="wrap relative grid min-h-[100svh] items-center pb-32 pt-28 lg:grid-cols-12">
           <div className="hero-copy lg:col-span-7">
             <p className="text-[1.15rem] font-bold text-[#3ecf8e]">{org.initiative}</p>
             <h1 className="mt-4 text-[3.5rem] leading-none md:text-[5.5rem]">{org.shortName}</h1>
@@ -36,10 +36,15 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        <a href="#tru-cot" className="scroll-cue" aria-label="Cuộn xuống: 9 trụ cột Kinh tế Biển Xanh">
+          <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+            <path d="M5 8l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
       </section>
 
       {/* Slide 31 */}
-      <Section tone="shoal" title={blueEconomy.title} lead={blueEconomy.subtitle}>
+      <Section id="tru-cot" tone="shoal" title={blueEconomy.title} lead={blueEconomy.subtitle}>
         <PillarGrid />
       </Section>
 

@@ -20,7 +20,7 @@ export function PageHeader({
   return (
     <section data-hero className="on-dark relative overflow-hidden bg-navy text-foam">
       <Waves />
-      <div className="wrap relative py-10 md:py-14">
+      <div className="wrap relative pb-14 pt-28 md:pb-20 md:pt-32">
         {crumbs && (
           <nav aria-label="Đường dẫn" className="mb-5 text-[1.2rem] font-medium text-foam md:text-[1.3rem]">
             <ol className="flex flex-wrap gap-x-2">
@@ -70,7 +70,7 @@ export function Section({
 }) {
   const toneClass = tone === "shoal" ? "bg-shoal" : tone === "dark" ? "on-dark bg-abyss text-foam" : "bg-white";
   return (
-    <section id={id} className={`${toneClass} scroll-mt-20 py-12 md:py-16 ${className}`}>
+    <section id={id} className={`${toneClass} scroll-mt-28 py-12 md:py-16 ${className}`}>
       <div className="wrap">
         {title && (
           <h2 className="section-title max-w-[26ch] text-[2.25rem] md:text-[3.25rem]">
