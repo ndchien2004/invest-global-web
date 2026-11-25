@@ -723,7 +723,7 @@ html.motion .hero-char {
     transform-origin: 0 0;
     animation: ring-spin 60s linear infinite;
   }
-  .module-ring > .module-node text {
+  .module-ring .module-face {
     animation: ring-spin 60s linear infinite reverse;
     transform-box: fill-box;
     transform-origin: center;

@@ -185,13 +185,16 @@ export default function HomePage() {
                         const a = (-90 + i * 60) * (Math.PI / 180);
                         return (
                           <g key={m.name} className="module-node">
-                            <circle cx={Math.cos(a) * r} cy={Math.sin(a) * r} r={40} fill="#D7261E" stroke="#F0A030" strokeWidth="4" />
-                            <text x={Math.cos(a) * r} y={Math.sin(a) * r - 3} textAnchor="middle" fill="#fff" fontSize="13" fontWeight="700">
-                              MODULE
-                            </text>
-                            <text x={Math.cos(a) * r} y={Math.sin(a) * r + 15} textAnchor="middle" fill="#fff" fontSize="18" fontWeight="700">
-                              {i + 1}
-                            </text>
+                            {/* cả khối (vòng tròn + chữ + số) xoay ngược quanh tâm vòng tròn → chữ luôn đứng thẳng, không lệch nhau */}
+                            <g className="module-face">
+                              <circle cx={Math.cos(a) * r} cy={Math.sin(a) * r} r={40} fill="#D7261E" stroke="#F0A030" strokeWidth="4" />
+                              <text x={Math.cos(a) * r} y={Math.sin(a) * r - 3} textAnchor="middle" fill="#fff" fontSize="13" fontWeight="700">
+                                MODULE
+                              </text>
+                              <text x={Math.cos(a) * r} y={Math.sin(a) * r + 15} textAnchor="middle" fill="#fff" fontSize="18" fontWeight="700">
+                                {i + 1}
+                              </text>
+                            </g>
                           </g>
                         );
                       })}
