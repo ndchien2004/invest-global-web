@@ -606,6 +606,35 @@ html.motion .timeline::before {
   transform: scaleY(var(--tl, 0));
 }
 
+/* Số trang trí dạng khối nổi 3D */
+.num-3d {
+  color: #eaf3f8;
+  text-shadow:
+    1px 1px 0 #d3e4ee,
+    2px 2px 0 #c3d9e6,
+    3px 3px 0 #b3cede,
+    4px 4px 0 #a3c3d6,
+    5px 5px 0 #93b8ce,
+    7px 9px 14px rgb(10 46 99 / 0.28);
+  transition:
+    translate 0.35s var(--ease-out),
+    text-shadow 0.35s var(--ease-out);
+}
+@media (hover: hover) {
+  :hover > .num-3d {
+    translate: -2px -3px;
+    text-shadow:
+      1px 1px 0 #d3e4ee,
+      2px 2px 0 #c3d9e6,
+      3px 3px 0 #b3cede,
+      4px 4px 0 #a3c3d6,
+      5px 5px 0 #93b8ce,
+      6px 6px 0 #83adc6,
+      7px 7px 0 #73a2be,
+      10px 13px 18px rgb(10 46 99 / 0.32);
+  }
+}
+
 /* ═════════════ Trang đơn dạng chương ═════════════ */
 html.lenis,
 html.lenis body {
