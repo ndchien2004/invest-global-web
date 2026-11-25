@@ -1,25 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { chapters } from "@/content/chapters";
 
-export const mainNav = [
-  { href: "/gioi-thieu", label: "Giới thiệu" },
-  { href: "/linh-vuc", label: "Lĩnh vực" },
-  { href: "/dich-vu", label: "Dịch vụ" },
-  { href: "/mang-luoi", label: "Mạng lưới" },
-  { href: "/doi-tac", label: "Đối tác" },
-  { href: "/tin-tuc", label: "Sự kiện" },
-  { href: "/nang-luc", label: "Bản quyền tác giả" },
-  { href: "/kinh-te-bien-xanh", label: "9 trụ cột Kinh tế Biển Xanh" },
-];
+/** Menu = các chương của trang đơn; bấm để cuộn tới. */
+export const mainNav = chapters.map((c) => ({ href: `/#${c.id}`, id: c.id, label: c.nav }));
 
 export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>("");
+
+  useEffect(() => {
+    const on = (e: Event) => setActive((e as CustomEvent<string>).detail);
+    window.addEventListener("chapter:active", on);
+    return () => window.removeEventListener("chapter:active", on);
+  }, []);
 
   useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
@@ -34,7 +33,7 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const isActive = (href: string) => pathname === "/" && href === `/#${active}`;
 
   return (
     <>
@@ -51,7 +50,7 @@ export default function SiteHeader() {
             scrolled ? "h-14 shadow-[0_10px_30px_-12px_rgba(6,26,58,0.45)]" : "h-16 shadow-[0_8px_28px_-14px_rgba(6,26,58,0.6)]"
           }`}
         >
-          <Link href="/" className="flex shrink-0 items-center gap-2.5 rounded-full" aria-label="Invest Global, về trang chủ">
+          <a href="/#top" className="flex shrink-0 items-center gap-2.5 rounded-full" aria-label="Invest Global, về đầu trang">
             <Image
               src="/images/brand/logo.webp"
               alt=""
@@ -61,13 +60,13 @@ export default function SiteHeader() {
               priority
             />
             <span className="hidden text-[1.05rem] font-bold uppercase leading-none text-navy sm:block lg:hidden 2xl:block">Invest Global</span>
-          </Link>
+          </a>
 
           <nav aria-label="Điều hướng chính" className="ml-auto hidden lg:block">
             <ul className="flex items-center">
               {mainNav.map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <a
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={`nav-pill whitespace-nowrap rounded-full px-2.5 py-2 text-[1rem] font-bold transition-colors xl:px-3 xl:text-[1.05rem] ${
@@ -75,15 +74,15 @@ export default function SiteHeader() {
                     }`}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <Link href="/lien-he" className="btn btn-primary ml-auto hidden whitespace-nowrap rounded-full md:inline-flex lg:ml-1">
+          <a href="/#lien-he" className={`btn ml-auto hidden whitespace-nowrap rounded-full md:inline-flex lg:ml-1 ${active === "lien-he" ? "bg-navy text-white" : "btn-primary"}`}>
             Liên hệ
-          </Link>
+          </a>
 
           <button
             type="button"
@@ -112,19 +111,20 @@ export default function SiteHeader() {
             <ul className="px-5 py-3">
               {mainNav.map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <a
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
+                    onClick={() => setOpen(false)}
                     className={`block border-b border-rule py-3 text-[1.1rem] font-bold ${isActive(item.href) ? "text-teal" : "text-ink"}`}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
               <li className="pt-4 pb-2 md:hidden">
-                <Link href="/lien-he" className="btn btn-primary w-full justify-center rounded-full">
+                <a href="/#lien-he" onClick={() => setOpen(false)} className="btn btn-primary w-full justify-center rounded-full">
                   Liên hệ
-                </Link>
+                </a>
               </li>
             </ul>
           </nav>

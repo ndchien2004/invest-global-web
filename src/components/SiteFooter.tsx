@@ -1,20 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
+import { chapters } from "@/content/chapters";
 import { org } from "@/content/org";
 
-const links = [
-  { href: "/gioi-thieu", label: "Giới thiệu" },
-  { href: "/linh-vuc", label: "Lĩnh vực" },
-  { href: "/dich-vu", label: "Dịch vụ" },
-  { href: "/mang-luoi", label: "Mạng lưới" },
-  { href: "/doi-tac", label: "Đối tác" },
-  { href: "/tin-tuc", label: "Sự kiện" },
-  { href: "/giai-phap-so", label: "Cổng thông tin" },
-  { href: "/xuc-tien-ngoai-giao", label: "Xúc tiến & ngoại giao" },
-  { href: "/nang-luc", label: "Bản quyền tác giả" },
-  { href: "/kinh-te-bien-xanh", label: "9 trụ cột Kinh tế Biển Xanh" },
-  { href: "/lien-he", label: "Liên hệ" },
-];
+const links = [...chapters.map((c) => ({ href: `/#${c.id}`, label: c.nav })), { href: "/#lien-he", label: "Liên hệ" }];
 
 /** Theo slide 43 — bản gọn */
 export default function SiteFooter() {
@@ -62,9 +50,9 @@ export default function SiteFooter() {
           <ul className="grid grid-cols-2 gap-x-6 gap-y-1.5 text-[1rem] lg:grid-cols-[auto_auto] lg:justify-end lg:gap-x-10">
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="whitespace-nowrap text-foam hover:text-white hover:underline">
+                <a href={l.href} className="whitespace-nowrap text-foam hover:text-white hover:underline">
                   {l.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>

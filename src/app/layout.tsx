@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Motion from "@/components/Motion";
+import ChapterRail from "@/components/story/ChapterRail";
+import StoryRuntime from "@/components/story/StoryRuntime";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { org } from "@/content/org";
@@ -57,7 +59,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <SiteFooter />
+        <ChapterRail />
         <Motion />
+        <StoryRuntime />
       </body>
     </html>
   );

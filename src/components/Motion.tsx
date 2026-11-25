@@ -9,12 +9,13 @@ import { useEffect } from "react";
  */
 export const REVEAL_SELECTOR = [
   "main section h2",
+  "main .section-title",
   "main section .wrap > p",
   "main :is(ul, ol):is(.grid, .flex-wrap) > li",
   "main figure",
   "main [data-reveal]",
 ]
-  .map((s) => `${s}:not([data-hero] *)`)
+  .map((s) => `${s}:not([data-hero] *):not([data-opener] *)`)
   .join(",");
 
 /** Bật hiệu ứng hiện dần khi cuộn; tự chạy lại mỗi lần đổi trang. */
