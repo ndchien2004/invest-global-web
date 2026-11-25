@@ -61,7 +61,7 @@ export default function HomePage() {
       <section id="top" data-hero className="hero on-dark relative overflow-hidden bg-navy text-white">
         <Waves tall />
         <div aria-hidden="true" className="hero-art pointer-events-none absolute inset-y-0 right-0 hidden aspect-[771/847] lg:block">
-          <Image src="/images/hero/cover-slide1-soft.webp" alt="" fill priority sizes="50vw" className="object-cover object-right" />
+          <Image src="/images/hero/cover-slide1-blur.webp" alt="" fill priority sizes="50vw" className="object-cover object-right" />
         </div>
         <div className="wrap relative grid min-h-[100svh] items-center pb-32 pt-28 lg:grid-cols-12">
           <div className="hero-copy lg:col-span-7">
