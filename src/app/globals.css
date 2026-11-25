@@ -1218,13 +1218,11 @@ html.motion .hero-char {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-words-scope] {
-    height: auto;
-  }
-  [data-words-scope] > .sticky {
+  .word-sticky {
     position: static;
-    height: auto;
-    padding-block: 6rem;
+  }
+  .word-travel {
+    display: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {

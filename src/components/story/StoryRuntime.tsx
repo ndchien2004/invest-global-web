@@ -155,8 +155,8 @@ export default function StoryRuntime() {
             stagger: 0.08,
             scrollTrigger: {
               trigger: el.closest("[data-words-scope]") ?? el,
-              start: el.closest("[data-words-scope]") ? "top top" : "top 80%",
-              end: el.closest("[data-words-scope]") ? "bottom bottom" : "bottom 45%",
+              start: el.closest("[data-words-scope]") ? "top 70%" : "top 80%",
+              end: el.closest("[data-words-scope]") ? "bottom 95%" : "bottom 45%",
               scrub: 0.6,
             },
           },

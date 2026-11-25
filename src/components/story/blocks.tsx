@@ -19,16 +19,20 @@ export function WordReveal({ text, className = "" }: { text: string; className?:
   );
 }
 
-/** Khối chữ lớn đứng yên giữa màn hình, chữ sáng dần khi cuộn qua. */
+/**
+ * Khối chữ lớn: khi cuộn tới thì dừng lại (sticky) để từng từ sáng lên.
+ * Phần "quãng cuộn" nằm phía trên chữ khi nhả ra → không để lộ khoảng trống trên/dưới.
+ */
 export function WordStage({ text, foot, tone = "light" }: { text: string; foot?: ReactNode; tone?: "light" | "dark" }) {
   return (
-    <div data-words-scope className={`relative h-[200vh] ${tone === "dark" ? "on-dark bg-abyss text-white" : "bg-white text-navy"}`}>
-      <div className="sticky top-0 flex h-[100svh] items-center">
+    <div data-words-scope className={`word-scope relative pb-12 pt-12 md:pb-16 md:pt-16 ${tone === "dark" ? "on-dark bg-abyss text-white" : "bg-white text-navy"}`}>
+      <div className="word-sticky sticky top-[24vh]">
         <div className="wrap">
           <WordReveal text={text} className="word-stage max-w-[42ch] text-[1.45rem] font-bold leading-[1.35] md:text-[1.95rem] lg:text-[2.35rem]" />
           {foot && <div className="mt-8">{foot}</div>}
         </div>
       </div>
+      <div aria-hidden="true" className="word-travel h-[55vh]" />
     </div>
   );
 }
