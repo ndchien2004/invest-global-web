@@ -128,7 +128,7 @@ export default function HomePage() {
                   ))}
                 </dl>
                 <p className="mt-14 text-[1.4rem] font-bold uppercase text-navy">{foundation.valuesTitle}</p>
-                <ul className="values-row mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+                <ul className="values-row mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
                   {foundation.values.map((v) => (
                     <li key={v} className="value-word">
                       {v}
@@ -410,7 +410,7 @@ export default function HomePage() {
         return (
           <section id={c.id} data-chapter aria-label={c.nav}>
             <ChapterOpener no={c.no} title={c.title} />
-            <div aria-hidden="true" className="logo-marquee bg-white py-8">
+            <div aria-hidden="true" className="logo-marquee bg-white py-4">
               {[0, 1].map((row) => (
                 <div key={row} className={`logo-marquee-row ${row ? "is-reverse" : ""}`}>
                   {[...allLogos, ...allLogos].map((p, i) => (
@@ -473,15 +473,15 @@ export default function HomePage() {
                   {indiaEvents.map((e) => {
                     const body = (
                       <>
-                        <span className="relative block aspect-[3/2] overflow-hidden rounded-lg bg-white">
+                        <span className="relative block aspect-[16/9] overflow-hidden rounded-lg bg-white">
                           <Image src={e.image} alt={`Poster: ${e.title}`} fill sizes="(min-width:1024px) 28rem, 85vw" className="object-cover" />
                         </span>
-                        <span className="mt-4 block text-[1.15rem] font-bold text-[#3ecf8e]">{e.dateLabel}</span>
-                        <span className="mt-1 block text-[1.3rem] font-bold leading-snug text-white">{e.title}</span>
-                        {e.subtitle && <span className="mt-1 block text-[1.05rem] italic text-foam">{e.subtitle}</span>}
-                        {e.venue && <span className="mt-2 block text-[1.05rem] text-foam">{e.venue}</span>}
-                        {e.organizers && <span className="mt-1 block text-[1.05rem] text-foam">{e.organizers}</span>}
-                        {e.detail && <span className="mt-2 block text-[1.05rem] text-foam">{e.detail}</span>}
+                        <span className="mt-3 block text-[1.05rem] font-bold text-[#3ecf8e]">{e.dateLabel}</span>
+                        <span className="event-title mt-1 block text-[1.25rem] font-bold leading-snug text-white">{e.title}</span>
+                        {e.subtitle && <span className="event-sub mt-1 block text-[1rem] italic text-foam">{e.subtitle}</span>}
+                        {e.venue && <span className="event-meta mt-2 block text-[1.05rem] text-foam">{e.venue}</span>}
+                        {e.organizers && <span className="event-meta mt-1 block text-[1.05rem] text-foam">{e.organizers}</span>}
+                        {e.detail && <span className="event-meta mt-2 block text-[1.05rem] text-foam">{e.detail}</span>}
                         {e.article && (
                           <span className="mt-3 block text-[1.05rem] font-bold text-brass">
                             Đọc bài báo trên {e.article.source} <span aria-hidden="true">↗</span>
@@ -558,8 +558,9 @@ export default function HomePage() {
                 {pillars.map((p) => (
                   <li key={p.slug} data-stack-card className="pillar-stack-item" style={{ top: `calc(6.5rem + ${p.no - 1} * 0.9rem)` }}>
                     <article className="pillar-card">
+                      <span className="pillar-card-dim" aria-hidden="true" />
                       <div className="pillar-card-media">
-                        <Image src={p.images[0]} alt={p.title} fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
+                        <Image src={p.images[0]} alt={p.title} fill loading="eager" sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
                         <span className="pillar-card-no" aria-hidden="true">
                           {String(p.no).padStart(2, "0")}
                         </span>

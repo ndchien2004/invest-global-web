@@ -7,9 +7,9 @@ import { useEffect, useRef, type ReactNode } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Cuộn dọc → nội dung chạy ngang (màn hình máy tính).
+ * Cuộn dọc → nội dung chạy ngang, trên mọi thiết bị (máy tính, máy tính bảng, điện thoại).
  * Khối được ghim bằng position: sticky; chiều cao khối = độ dài dải ngang.
- * Điện thoại / giảm chuyển động: dải ngang vuốt tay bình thường.
+ * Chuyển động do chính người dùng cuộn điều khiển nên vẫn bật khi máy chọn "giảm chuyển động".
  */
 export default function HScroll({
   children,
@@ -30,7 +30,8 @@ export default function HScroll({
     const w = wrap.current!;
     const t = track.current!;
     const mm = gsap.matchMedia();
-    mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
+    mm.add({ reduce: "(prefers-reduced-motion: reduce)", all: "all" }, (ctx) => {
+      const reduce = Boolean(ctx.conditions?.reduce);
       w.classList.add("is-pinned");
       const dist = () => Math.max(0, t.scrollWidth - window.innerWidth);
       const setH = () => (w.style.height = `${dist() + window.innerHeight}px`);
@@ -42,7 +43,7 @@ export default function HScroll({
           trigger: w,
           start: "top top",
           end: () => `+=${dist()}`,
-          scrub: 0.5,
+          scrub: reduce ? true : 0.5,
           invalidateOnRefresh: true,
           onRefreshInit: setH,
           onUpdate: (st) => bar.current && (bar.current.style.transform = `scaleX(${st.progress})`),
@@ -68,8 +69,8 @@ export default function HScroll({
             {children}
           </div>
         </div>
-        <div className="wrap mt-6 flex items-center gap-4">
-          <p className="hscroll-hint text-[1rem] font-bold uppercase tracking-wide opacity-70">{hint}</p>
+        <div className="wrap mt-4 flex items-center gap-4">
+          <p className="hscroll-hint text-[0.95rem] font-bold uppercase tracking-wide opacity-70 md:text-[1rem]">{hint}</p>
           <div className="h-[3px] flex-1 overflow-hidden rounded bg-current/15">
             <div ref={bar} className="hscroll-bar h-full origin-left rounded bg-brass" style={{ transform: "scaleX(0)" }} />
           </div>

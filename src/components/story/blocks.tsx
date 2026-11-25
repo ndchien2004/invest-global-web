@@ -25,7 +25,7 @@ export function WordStage({ text, foot, tone = "light" }: { text: string; foot?:
     <div data-words-scope className={`relative h-[200vh] ${tone === "dark" ? "on-dark bg-abyss text-white" : "bg-white text-navy"}`}>
       <div className="sticky top-0 flex h-[100svh] items-center">
         <div className="wrap">
-          <WordReveal text={text} className="word-stage max-w-[34ch] text-[1.9rem] font-bold leading-[1.25] md:text-[2.75rem] lg:text-[3.25rem]" />
+          <WordReveal text={text} className="word-stage max-w-[42ch] text-[1.45rem] font-bold leading-[1.35] md:text-[1.95rem] lg:text-[2.35rem]" />
           {foot && <div className="mt-8">{foot}</div>}
         </div>
       </div>

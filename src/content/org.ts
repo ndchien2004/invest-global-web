@@ -28,7 +28,7 @@ export const founders = [
   { short: "VAFIE", name: "Hiệp hội Doanh nghiệp đầu tư nước ngoài (VAFIE)", logo: "/images/partners/vafie.webp" },
   { short: "VPBA", name: "Hội Doanh nhân Tư nhân Việt Nam (VPBA)", logo: "/images/partners/vpba.webp" },
   { short: "VSA", name: "Hiệp hội Nuôi biển Việt Nam (VSA)", logo: "/images/partners/vsa.webp" },
-  { short: "VnEconomy", name: "Tạp chí Kinh tế Việt Nam (Vneconomy)", logo: "/images/partners/vneconomy.webp" },
+  { short: "VnEconomy", name: "Tạp chí Kinh tế Việt Nam (VnEconomy)", logo: "/images/partners/vneconomy.webp" },
   { short: "VACNE", name: "Hội bảo vệ Thiên nhiên và Môi trường Việt Nam (VACNE)", logo: "/images/partners/vacne.webp" },
 ];
 

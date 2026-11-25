@@ -6,6 +6,8 @@ import Lenis from "lenis";
 import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
+// thanh địa chỉ trên điện thoại co giãn không làm tính lại toàn bộ vị trí (tránh giật)
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 declare global {
   interface Window {
@@ -196,12 +198,10 @@ export default function StoryRuntime() {
       cards.forEach((card, i) => {
         const next = cards[i + 1];
         if (!next) return;
-        gsap.to(card.firstElementChild, {
-          scale: 0.92,
-          filter: "brightness(0.72)",
-          ease: "none",
-          scrollTrigger: { trigger: next, start: "top 85%", end: "top 15%", scrub: true },
-        });
+        const st = { trigger: next, start: "top 90%", end: "top 20%", scrub: 0.4 };
+        gsap.fromTo(card.firstElementChild, { scale: 1 }, { scale: 0.93, ease: "none", force3D: true, scrollTrigger: st });
+        const dim = card.querySelector(".pillar-card-dim");
+        if (dim) gsap.fromTo(dim, { opacity: 0 }, { opacity: 0.45, ease: "none", scrollTrigger: { ...st } });
       });
 
       // đường kẻ tự vẽ theo cuộn

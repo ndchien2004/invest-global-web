@@ -659,9 +659,10 @@ html.motion .hero-char {
   overflow: hidden;
   border-radius: 0.75rem;
   background: #fff;
-  padding: 1.4rem 1rem;
+  padding: 1rem 0.75rem;
   text-align: center;
-  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  white-space: nowrap;
+  font-size: clamp(1.05rem, 1.7vw, 1.45rem);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-navy);
@@ -729,14 +730,19 @@ html.motion .hero-char {
   height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: safe center;
   overflow: hidden;
+  padding-top: 5.5rem;
+  padding-bottom: 1.25rem;
+}
+.hscroll .section-title {
+  font-size: clamp(1.45rem, 2.3vw, 2.1rem);
+}
+.hscroll.is-pinned .hscroll-viewport {
+  margin-top: clamp(1rem, 3vh, 2rem);
 }
 .hscroll.is-pinned .hscroll-viewport {
   overflow: visible;
-}
-.hscroll:not(.is-pinned) .hscroll-hint::after {
-  content: " (vuốt ngang)";
 }
 
 /* Cột mốc */
@@ -810,8 +816,31 @@ html.motion .hero-char {
   gap: 2rem;
 }
 .event-card {
-  width: min(28rem, 82vw);
+  width: min(25rem, 74vw);
   flex-shrink: 0;
+}
+/* màn hình nhỏ: ngày, địa điểm, đơn vị tổ chức đã in trên poster → ẩn dòng chữ lặp để vừa khung */
+@media (max-width: 767px) {
+  .event-card .event-title {
+    font-size: 1.1rem;
+  }
+  .event-card :is(.event-meta, .event-sub) {
+    display: none;
+  }
+}
+.event-card .event-meta {
+  font-size: 0.98rem;
+}
+@media (max-height: 820px) {
+  .event-card {
+    width: min(21rem, 70vw);
+  }
+  .event-card :is(.event-sub, .event-meta) {
+    display: none;
+  }
+  .event-card .event-title {
+    font-size: 1.08rem;
+  }
 }
 .event-card img {
   transition: scale 0.6s var(--ease-out);
@@ -943,7 +972,7 @@ html.motion .hero-char {
   animation: marquee 60s linear infinite;
 }
 .logo-marquee-row + .logo-marquee-row {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 .logo-marquee-row.is-reverse {
   animation-direction: reverse;
@@ -954,8 +983,8 @@ html.motion .hero-char {
 }
 .logo-marquee-item {
   position: relative;
-  width: 7.5rem;
-  height: 4rem;
+  width: 5.5rem;
+  height: 2.5rem;
   flex-shrink: 0;
 }
 @keyframes marquee {
@@ -985,13 +1014,25 @@ html.motion .hero-char {
   position: sticky;
 }
 .pillar-card {
+  position: relative;
   display: grid;
   overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
   border-radius: 1.5rem;
   background: #fff;
   color: var(--color-ink);
   box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.6);
   transform-origin: center top;
+}
+.pillar-card-dim {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #061a3a;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
 }
 .pillar-card-media {
   position: relative;
