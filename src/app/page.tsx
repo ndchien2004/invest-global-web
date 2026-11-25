@@ -548,15 +548,7 @@ export default function HomePage() {
         return (
           <section id={c.id} data-chapter aria-label={c.nav}>
             <ChapterOpener no={c.no} title={c.title} lead={c.lead} tone="abyss" />
-            <div className="on-dark bg-abyss pb-10 text-white">
-              <div className="wrap">
-                <p className="pillar-count" aria-label="9 trụ cột">
-                  <span data-count="9">9</span>
-                  <span className="text-[1.4rem] font-bold uppercase tracking-wide text-foam md:text-[1.8rem]">trụ cột chiến lược</span>
-                </p>
-              </div>
-            </div>
-            <div className="on-dark bg-abyss pb-24 text-white">
+            <div className="on-dark bg-abyss pb-24 pt-10 text-white">
               <ol className="wrap pillar-stack">
                 {pillars.map((p) => (
                   <li key={p.slug} data-stack-card className="pillar-stack-item" style={{ top: `calc(6.5rem + ${p.no - 1} * 0.9rem)` }}>

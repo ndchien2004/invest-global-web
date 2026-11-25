@@ -1013,18 +1013,7 @@ html.motion .hero-char {
   }
 }
 
-/* 9 trụ cột: số lớn + thẻ chồng */
-.pillar-count {
-  display: flex;
-  align-items: baseline;
-  gap: 1.25rem;
-}
-.pillar-count > span:first-child {
-  font-size: clamp(6rem, 14vw, 11rem);
-  font-weight: 700;
-  line-height: 0.9;
-  color: var(--color-brass);
-}
+/* 9 trụ cột: thẻ chồng */
 .pillar-stack {
   display: grid;
   gap: 2rem;
