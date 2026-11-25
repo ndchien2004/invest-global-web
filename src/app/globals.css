@@ -636,7 +636,7 @@ html.motion .hero-char {
 
 /* Màn mở chương */
 .opener-num {
-  font-size: clamp(8rem, 22vw, 19rem);
+  font-size: clamp(6.5rem, 16vw, 14rem);
   font-weight: 700;
   line-height: 0.8;
   color: transparent;

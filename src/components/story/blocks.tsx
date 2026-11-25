@@ -39,7 +39,7 @@ export function ChapterOpener({ no, title, lead, tone = "navy" }: { no: number; 
   return (
     <header data-opener className={`opener on-dark relative overflow-hidden ${tone === "abyss" ? "bg-abyss" : "bg-navy"} text-white`}>
       <Waves />
-      <div className="wrap relative grid min-h-[72svh] items-end gap-6 pb-24 pt-32 md:pb-28 lg:grid-cols-12">
+      <div className="wrap relative grid min-h-[50svh] items-end gap-6 pb-16 pt-28 md:pb-20 lg:grid-cols-12">
         <p data-opener-num aria-hidden="true" className="opener-num lg:col-span-5">
           {n}
         </p>
