@@ -461,16 +461,6 @@ main a img {
   }
 }
 
-/* Hero: parallax theo chuột */
-[data-parallax] .hero-art {
-  translate: calc(var(--mx, 0) * -14px) calc(var(--my, 0) * -10px);
-  transition: translate 0.6s var(--ease-out);
-}
-[data-parallax] .hero-copy {
-  translate: calc(var(--mx, 0) * 6px) calc(var(--my, 0) * 4px);
-  transition: translate 0.6s var(--ease-out);
-}
-
 /* Nút chính: vệt sáng lướt qua định kỳ */
 .btn-sheen {
   position: relative;
