@@ -150,10 +150,10 @@ export default function HomePage() {
                     { t: strategy.outcomesTitle, list: strategy.outcomes },
                   ].map((g, i) => (
                     <div key={g.t} data-reveal className="relative overflow-hidden rounded-lg border-2 border-shoal p-7">
-                      <span aria-hidden="true" className="absolute -right-2 -top-6 text-[7rem] font-bold leading-none text-shoal">
+                      <span aria-hidden="true" className="absolute right-5 top-4 text-[4.5rem] font-bold leading-none text-shoal">
                         {i + 1}
                       </span>
-                      <h4 className="relative text-[1.6rem] text-kelp">{g.t}</h4>
+                      <h4 className="relative pr-16 text-[1.6rem] text-kelp">{g.t}</h4>
                       <ul className="relative mt-4 space-y-2 text-[1.2rem] font-bold uppercase text-navy">
                         {g.list.map((a) => (
                           <li key={a}>{a}</li>
